@@ -1,0 +1,28 @@
+{
+  "name": "canvas",
+  "version": "1.0.0",
+  "description": "a demo",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server --open"
+  },
+  "author": "kenliu",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^0.28.11",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.0",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.11.1",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.24.1",
+    "webpack-cli": "^3.0.3"
+  }
+}
