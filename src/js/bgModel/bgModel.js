@@ -11,7 +11,6 @@ canvas.setBackground = function (boolean = true, type = 'line') {
         let canvasWidth = canvas.getAttribute('width');
         let canvasHeight = canvas.getAttribute('height');
         ctx.beginPath();
-        console.log(canvasWidth, canvasHeight);
         ctx.save();
         ctx.translate(0.5, 0.5);
         ctx.lineWidth = 1;

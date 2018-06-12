@@ -45,4 +45,7 @@ var EventController={
         return this.listenList
     }
 };
+function aa(b){
+    return b
+}
 export default EventController

@@ -4,7 +4,7 @@ p{
 #app{
     position: relative;
 }
-#canvas{
+#baseCanvas{
     border: 1px solid black;
     position: absolute;
     top:0;

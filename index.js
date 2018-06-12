@@ -1,9 +1,9 @@
 /**
  * Created by liuhantao on 2018/6/8.
  */
-import BgCanvas from './src/js/modelClass/bgModel';
-import BaseModel from './src/js/modelClass/baseModel';
-import EventController from './src/js/controlList/baseControl'
+import BgCanvas from 'src/js/bgModel/bgModel';
+import BaseModel from 'src/js/baseModel/baseModel';
+import EventController from 'src/js/controllerList/baseControl'
 import './src/css/base.css';
 
 BgCanvas.setBackground(true,'point');
