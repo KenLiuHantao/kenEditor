@@ -2,19 +2,25 @@ p{
     color:rebeccapurple;
 }
 #app{
+    display: block;
     position: relative;
 }
 #baseCanvas{
-    border: 1px solid black;
     position: absolute;
-    top:0;
-    left: 0;
+    top:40px;
+    left: 200px;
     z-index: 1;
 }
 #canvasBg{
     border: 1px solid transparent;
-    position: absolute;
-    top:0;
-    left: 0;
+    float: left;
+    margin-left: 200px;
     z-index: 0;
+}
+#controllerList{
+    height: 40px;
+}
+#controllerList .separator {
+    margin: 4px;
+    border-left: 1px solid #E9E9E9;
 }

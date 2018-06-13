@@ -1,15 +1,18 @@
 /**
  * Created by liuhantao on 2018/6/8.
  */
-import BgCanvas from 'src/js/bgModel/bgModel';
-import BaseModel from 'src/js/baseModel/baseModel';
-import EventController from 'src/js/controllerList/baseControl'
+import BaseModel from './src/js/baseModel/baseModel';
+import BgModel from './src/js/bgModel/bgModel';
+import EventController from './src/js/controllerList/baseControl'
+import ControllerList from './src/js/controllerList/controllerList'
 import './src/css/base.css';
-
-BgCanvas.setBackground(true,'point');
-
+//建立背景canvas
+let bgCanvas=new BgModel('app');
+//建立主canvas
 let baseModel=new BaseModel('app');
 let canvas=baseModel.canvas;
+
+
 let ctx=baseModel.ctx;
 baseModel.createNode();
 
@@ -17,11 +20,12 @@ canvas.onmousedown=function(event){
     var x = event.pageX - canvas.getBoundingClientRect().left;
     var y = event.pageY - canvas.getBoundingClientRect().top;
     console.log(x,y,'down');
-    BgCanvas.clearBackground();
+    bgCanvas.clearBackground();
 };
 canvas.onmouseup=function(event){
     var x = event.pageX - canvas.getBoundingClientRect().left;
     var y = event.pageY - canvas.getBoundingClientRect().top;
     console.log(x,y,'up');
-    BgCanvas.setBackground(true,'line');
+    bgCanvas.setBackground(true,'line');
 };
+let controllerList=new ControllerList('app');
