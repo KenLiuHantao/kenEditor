@@ -6,6 +6,7 @@ import BgModel from './src/js/bgModel/bgModel';
 import EventController from './src/js/controllerList/baseControl'
 import ControllerList from './src/js/controllerList/controllerList'
 import './src/css/base.css';
+import './src/css/font.css'
 //建立背景canvas
 let bgCanvas=new BgModel('app');
 //建立主canvas
