@@ -10,6 +10,12 @@ class controllerModel {
         if(typeof (config)!='object'){
             console.warn('Wrong parameters!')
         }
+        console.log(config)
+        var dom=document.createElement('i');
+        dom.innerHTML=config.icon;
+        dom.setAttribute('class','iconfont');
+        dom.setAttribute('title',config.popup);
+        return dom
     }
 }
 export  default controllerModel
