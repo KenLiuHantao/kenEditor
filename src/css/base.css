@@ -2,6 +2,9 @@
     display: block;
     position: relative;
 }
+body{
+    margin: 0;
+}
 #baseCanvas{
     position: absolute;
     top:40px;
@@ -15,12 +18,40 @@
     z-index: 0;
 }
 #controllerList{
-    height: 40px;
+    padding: 6px 20px 8px 20px;
+    width: 100%;
+    border: 1px solid #E9E9E9;
+    border-left: 0;
+    border-right: 0;
+    height: 42px;
+    line-height: 24px;
+    box-sizing: border-box;
+    z-index: 3;
+    box-shadow: 0 8px 12px 0 rgba(0, 52, 107, 0.04);
 }
 #controllerList .separator {
     margin: 4px;
     border-left: 1px solid #E9E9E9;
+    padding-bottom: 5px;
 }
-#controllerList .controllerDom{
-
+#controllerList .singleController{
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    margin: 0 10px;
+    border-radius: 2px;
+    display: inline-block;
+    border: 1px solid rgba(2,2,2,0);
+    font-size: 14px;
+    text-align: center;
+}
+#controllerList .disable{
+    color: rgba(0,0,0,0.25);
+}
+#controllerList .default:hover{
+    cursor: pointer;
+    border: 1px solid rgba(2,2,2,0.15);
+}
+#controllerList .disable:hover{
+    cursor: default;
 }
