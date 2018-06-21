@@ -43,7 +43,12 @@ var EventController={
         }
     },
     removeEventListener(name){
-
+        for(var i=0;i>this.listenList.lengthl;i++){
+            if(this.listenList.name==name){
+                this.listenList.splice(i,1);
+                break;
+            }
+        }
     },
     getListenList(){
         return this.listenList

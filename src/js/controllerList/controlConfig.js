@@ -72,6 +72,20 @@ let config=[
         status:''
     },{
         class:'separator'
+    },{
+        name:'网格背景',
+        icon:'&#xe9bd;',
+        popup:'实际尺寸',
+        class:'default',
+        eventName:'setDefault',
+        status:''
+    },{
+        name:'点线背景',
+        icon:'&#xe74b;',
+        popup:'实际尺寸',
+        class:'default',
+        eventName:'setDefault',
+        status:''
     }
 ];
 export default config

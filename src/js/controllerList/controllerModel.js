@@ -6,7 +6,7 @@ import EventController from './baseControl'
 import './defaultEvent'
 class controllerModel {
     constructor() {
-
+        this.config={}
     }
 
     createControllerDom(config = {}) {

@@ -9,6 +9,7 @@ import './src/css/base.css';
 import './src/css/font.css'
 //建立背景canvas
 let bgCanvas=new BgModel('app');
+bgCanvas.setBackground(true,'point');
 //建立主canvas
 let baseModel=new BaseModel('app');
 let canvas=baseModel.canvas;

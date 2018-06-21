@@ -5,7 +5,7 @@ import config from './controlConfig'
 import ControllerModel from './controllerModel'
 class ControllerList {
     constructor(id) {
-        this.controllerList=this._loadControllerConfig();
+        this.controllerList=this._loadDefaultControllerConfig();
         this._createControllerList(id);
     }
 
@@ -28,7 +28,7 @@ class ControllerList {
         document.querySelector('#' + id).appendChild(dom);
     }
 
-    _loadControllerConfig() {
+    _loadDefaultControllerConfig() {
         return config
     }
 
@@ -36,17 +36,17 @@ class ControllerList {
         if(typeof (controller)!='object'){
             console.warn('Wrong parameters!')
         }
-        this.config.push(controller)
+        this.controllerList.push(controller)
     }
 
     changeControllerIndex(from,to){
-        let data=this.config[to];
-        this.config[to]=this.config[from];
-        this.config[from]=data;
+        let data=this.controllerList[to];
+        this.controllerList[to]=this.controllerList[from];
+        this.controllerList[from]=data;
     }
 
     deleteController(index){
-        this.config.splice(index,1)
+        this.controllerList.splice(index,1)
     }
 }
 export default ControllerList

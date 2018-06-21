@@ -41,3 +41,6 @@ EventController.addEventListener('setAuto',function(){
 EventController.addEventListener('setDefault',function(){
     console.log('实际尺寸')
 });
+//10.变更背景图为线状
+
+//11.变更背景图为点状

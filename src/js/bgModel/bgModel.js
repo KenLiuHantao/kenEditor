@@ -21,10 +21,12 @@ class bgModel {
         var canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'canvasBg');
         //异步添加节点 避免获取不到父节点宽度
+        var that=this;
         setTimeout(function () {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 400);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
+            that.setBackground(true,'point')
         }, 100);
         this.canvas = canvas
     }
