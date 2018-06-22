@@ -32,14 +32,11 @@ class controllerModel {
     }
     addDomEvent(dom,eventName){
         dom.addEventListener('click',function(){
-            fn(dom,eventName);
-        });
-        function  fn(dom,eventName){
             //添加验证 如果status为disable就不执行事件
             if(dom.getAttribute('status')!='disable'){
-                EventController.emit(eventName)
+                EventController.emit(eventName,dom)
             }
-        }
+        });
     }
 }
 export default controllerModel

@@ -3,7 +3,7 @@
  */
 //这里都是预制的事件
 import EventController from './baseControl'
-
+import {bgCanvas} from '../../../index'
 //控制栏一堆事件
 //1.后退
 EventController.addEventListener('goBack',function(){
@@ -42,5 +42,22 @@ EventController.addEventListener('setDefault',function(){
     console.log('实际尺寸')
 });
 //10.变更背景图为线状
-
+EventController.addEventListener('changeBackgroundLine',function(dom){
+    if(dom.getAttribute('class').indexOf('active')!=-1){
+        dom.setAttribute('class',dom.getAttribute('class').replace('active','default'));
+        bgCanvas.clearBackground()
+    }else{
+        dom.setAttribute('class',dom.getAttribute('class').replace('default','active'));
+        bgCanvas.setBackground(true,'line')
+    }
+});
 //11.变更背景图为点状
+EventController.addEventListener('changeBackgroundPoint',function(dom){
+    if(dom.getAttribute('class').indexOf('active')!=-1){
+        dom.setAttribute('class',dom.getAttribute('class').replace('active','default'));
+        bgCanvas.clearBackground()
+    }else{
+        dom.setAttribute('class',dom.getAttribute('class').replace('default','active'));
+        bgCanvas.setBackground(true,'point')
+    }
+});

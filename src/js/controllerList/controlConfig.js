@@ -75,16 +75,16 @@ let config=[
     },{
         name:'网格背景',
         icon:'&#xe9bd;',
-        popup:'实际尺寸',
-        class:'default',
-        eventName:'setDefault',
+        popup:'网格背景',
+        class:'active',
+        eventName:'changeBackgroundLine',
         status:''
     },{
         name:'点线背景',
         icon:'&#xe74b;',
-        popup:'实际尺寸',
+        popup:'点线背景',
         class:'default',
-        eventName:'setDefault',
+        eventName:'changeBackgroundPoint',
         status:''
     }
 ];

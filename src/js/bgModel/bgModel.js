@@ -26,7 +26,7 @@ class bgModel {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 400);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
-            that.setBackground(true,'point')
+            that.setBackground(true,'line')
         }, 100);
         this.canvas = canvas
     }

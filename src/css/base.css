@@ -55,3 +55,9 @@ body{
 #controllerList .disable:hover{
     cursor: default;
 }
+#controllerList .active{
+    background: #EEEEEE;
+}
+#controllerList .active:hover{
+    cursor: pointer;
+}
