@@ -6,6 +6,8 @@ import typeConfig from './nodeTypeConfig'
 class nodeListModel {
     constructor(id) {
         this.id=id;
+        this.type='all';
+        this.keyword='';
         this.nodeList = this._loadDefaultListConfig();
         this._createNodeList(id)
     }
@@ -34,7 +36,15 @@ class nodeListModel {
         }else{
             document.querySelector('#' + id).appendChild( dom);
         }
-        console.log(search)
+        var that=this;
+        search.addEventListener('change',function(){
+            that.changeType(search.value)
+        });
+        //添加关键字搜索
+        var inputDom=document.createElement('input');
+        inputDom.setAttribute('type','text');
+        inputDom.setAttribute('placeholder','请输入关键字');
+        dom.appendChild(inputDom);
     }
     _loadDefaultListConfig() {
         return config
@@ -45,7 +55,10 @@ class nodeListModel {
     addNode(node) {
 
     }
-
+    changeType(type){
+        this.type=type;
+        console.log(this.type)
+    }
 
 }
 export default nodeListModel

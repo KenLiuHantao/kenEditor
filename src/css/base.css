@@ -76,3 +76,9 @@ body{
     line-height: 20px;
     width: 100px;
 }
+#nodeList input{
+    margin-top: 20px;
+    border-radius: 2px;
+    line-height: 20px;
+    width: 100px;
+}

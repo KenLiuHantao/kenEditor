@@ -17,7 +17,7 @@ class bgModel {
             console.error("Can't find DOM with #" + id + '!');
             return
         }
-
+        this.style='line';
         var canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'canvasBg');
         //异步添加节点 避免获取不到父节点宽度
@@ -26,10 +26,9 @@ class bgModel {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 400);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
-            that.setBackground('line')
+            that.setBackground(that.style)
         }, 100);
         this.canvas = canvas;
-        this.style='line'
     }
 
     setBackground(type = 'line') {
@@ -44,6 +43,7 @@ class bgModel {
         if(type){
             this.style=type
         }
+        console.log(this.style);
         switch (this.style) {
             case "line":
                 ctx.strokeStyle = "rgba(0,0,0,0.05)";
