@@ -61,3 +61,18 @@ body{
 #controllerList .active:hover{
     cursor: pointer;
 }
+#nodeList {
+    display: inline-block;
+    width: 199px;
+    position: absolute;
+    top:40px;
+    border-right: 1px solid #A7A7A7;
+    text-align: center;
+    min-height: 600px;
+}
+#nodeList select{
+    margin-top: 20px;
+    border-radius: 2px;
+    line-height: 20px;
+    width: 100px;
+}

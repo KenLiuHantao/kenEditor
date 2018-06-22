@@ -5,6 +5,7 @@ import BaseModel from './src/js/baseModel/baseModel';
 import BgModel from './src/js/bgModel/bgModel';
 import EventController from './src/js/controllerList/baseControl'
 import ControllerList from './src/js/controllerList/controllerList'
+import NodeList from './src/js/nodeList/nodeListModel'
 import './src/css/base.css';
 import './src/css/font.css'
 //建立背景canvas
@@ -31,3 +32,4 @@ canvas.onmouseup=function(event){
     //bgCanvas.setBackground(true,'line');
 };
 export let controllerList=new ControllerList('app');
+export let nodeList=new NodeList('app')
