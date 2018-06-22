@@ -48,7 +48,7 @@ EventController.addEventListener('changeBackgroundLine',function(dom){
         bgCanvas.clearBackground()
     }else{
         dom.setAttribute('class',dom.getAttribute('class').replace('default','active'));
-        bgCanvas.setBackground(true,'line')
+        bgCanvas.setBackground('line')
     }
 });
 //11.变更背景图为点状
@@ -58,6 +58,6 @@ EventController.addEventListener('changeBackgroundPoint',function(dom){
         bgCanvas.clearBackground()
     }else{
         dom.setAttribute('class',dom.getAttribute('class').replace('default','active'));
-        bgCanvas.setBackground(true,'point')
+        bgCanvas.setBackground('point')
     }
 });

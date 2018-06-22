@@ -22,12 +22,12 @@ canvas.onmousedown=function(event){
     var x = event.pageX - canvas.getBoundingClientRect().left;
     var y = event.pageY - canvas.getBoundingClientRect().top;
     console.log(x,y,'down');
-    bgCanvas.clearBackground();
+    //bgCanvas.clearBackground();
 };
 canvas.onmouseup=function(event){
     var x = event.pageX - canvas.getBoundingClientRect().left;
     var y = event.pageY - canvas.getBoundingClientRect().top;
     console.log(x,y,'up');
-    bgCanvas.setBackground(true,'line');
+    //bgCanvas.setBackground(true,'line');
 };
 let controllerList=new ControllerList('app');
