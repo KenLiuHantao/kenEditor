@@ -5,6 +5,7 @@ import config from './controlConfig'
 import ControllerModel from './controllerModel'
 class ControllerList {
     constructor(id) {
+        this.id=id;
         this.controllerList=this._loadDefaultControllerConfig();
         this._createControllerList(id);
     }
@@ -25,7 +26,12 @@ class ControllerList {
             var controllerDom=controller.createControllerDom(this.controllerList[i]);
             dom.appendChild(controllerDom);
         }
-        document.querySelector('#' + id).appendChild(dom);
+        if(document.querySelector('#' + id).firstChild){
+            document.querySelector('#' + id).insertBefore( dom,document.querySelector('#' + id).firstChild);
+        }else{
+            document.querySelector('#' + id).appendChild( dom);
+        }
+
     }
 
     _loadDefaultControllerConfig() {
@@ -36,17 +42,38 @@ class ControllerList {
         if(typeof (controller)!='object'){
             console.warn('Wrong parameters!')
         }
-        this.controllerList.push(controller)
+        this.controllerList.push(controller);
+        this.render();
     }
 
     changeControllerIndex(from,to){
         let data=this.controllerList[to];
         this.controllerList[to]=this.controllerList[from];
         this.controllerList[from]=data;
+        this.render();
     }
 
-    deleteController(index){
+    deleteControllerByIndex(index){
         this.controllerList.splice(index,1)
+        this.render();
+    }
+    deleteControllerByName(name){
+        var index=null;
+        for(var i=0;i<this.controllerList.length;i++){
+            if(controllerList[i].name==name){
+                index=i;
+                break;
+            }
+        }
+        if(index || i==0){
+            this.controllerList.splice(index,1)
+        }
+        this.render();
+    }
+    render(){
+        var dom=document.getElementById("controllerList");
+        dom.parentNode.removeChild(dom);
+        this._createControllerList(this.id);
     }
 }
 export default ControllerList

@@ -30,4 +30,4 @@ canvas.onmouseup=function(event){
     console.log(x,y,'up');
     //bgCanvas.setBackground(true,'line');
 };
-let controllerList=new ControllerList('app');
+export let controllerList=new ControllerList('app');

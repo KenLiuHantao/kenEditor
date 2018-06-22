@@ -3,7 +3,7 @@
  */
 //这里都是预制的事件
 import EventController from './baseControl'
-import {bgCanvas} from '../../../index'
+import {bgCanvas,controllerList} from '../../../index'
 //控制栏一堆事件
 //1.后退
 EventController.addEventListener('goBack',function(){
@@ -39,7 +39,8 @@ EventController.addEventListener('setAuto',function(){
 });
 //9.实际尺寸
 EventController.addEventListener('setDefault',function(){
-    console.log('实际尺寸')
+    console.log('实际尺寸');
+    //controllerList.deleteControllerByIndex(1);
 });
 //10.变更背景图为线状
 EventController.addEventListener('changeBackgroundLine',function(dom){
