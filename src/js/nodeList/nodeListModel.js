@@ -3,6 +3,7 @@
  */
 import config from './nodeConfig';
 import typeConfig from './nodeTypeConfig'
+import nodeModel from './nodeModel'
 class nodeListModel {
     constructor(id) {
         this.id=id;
@@ -45,6 +46,13 @@ class nodeListModel {
         inputDom.setAttribute('type','text');
         inputDom.setAttribute('placeholder','请输入关键字');
         dom.appendChild(inputDom);
+        //遍历添加节点
+        let ulDom=document.createElement('ul');
+        let node=new nodeModel();
+        for(var i=0;i<this.controllerList.length;i++){
+            var nodeDom=node.createNodeDom(this.nodeList[i]);
+            ulDom.appendChild(nodeDom);
+        }
     }
     _loadDefaultListConfig() {
         return config

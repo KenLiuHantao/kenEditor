@@ -3,12 +3,22 @@
  */
 let config=[
     {
-        name:'一级菜单1',
+        name:'数据源',
         icon:'',
         child:[
             {
-                name:'二级菜单1-1',
-                icon:''
+                name:'KAFKA',
+                icon:'&#xe65a;'
+            },
+            {
+                name:'ElasticSearch',
+                icon:'&#xe80f;'
+            },{
+                name:'Hive',
+                icon:'&#xe601;'
+            },{
+                name:'Hbase',
+                icon:'&#xe6e7;'
             }
         ]
     }
