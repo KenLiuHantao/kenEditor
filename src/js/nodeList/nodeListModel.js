@@ -49,10 +49,11 @@ class nodeListModel {
         //遍历添加节点
         let ulDom=document.createElement('ul');
         let node=new nodeModel();
-        for(var i=0;i<this.controllerList.length;i++){
+        for(var i=0;i<this.nodeList.length;i++){
             var nodeDom=node.createNodeDom(this.nodeList[i]);
             ulDom.appendChild(nodeDom);
         }
+        dom.appendChild(ulDom);
     }
     _loadDefaultListConfig() {
         return config

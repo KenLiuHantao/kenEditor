@@ -27,7 +27,7 @@ class bgModel {
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
             that.setBackground(that.style)
-        }, 100);
+        }, 200);
         this.canvas = canvas;
     }
 

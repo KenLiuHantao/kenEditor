@@ -10,14 +10,35 @@ class nodeModel {
         if (typeof (config) != 'object') {
             console.warn('Wrong parameters!')
         }
-        var dom = document.createElement('i');
-        dom.innerHTML = config.icon;
-        dom.setAttribute('class', 'iconfont singleController ' + config.class);
-        dom.setAttribute('title', config.popup);
-        dom.setAttribute('status', config.status);
-        if (config.eventName) {
-            this.addDomEvent(dom, config.eventName)
+        var dom = document.createElement('li');
+        var title= document.createElement('div');
+        title.innerHTML = config.icon+config.name;
+        title.setAttribute('class', 'iconfont nodeIcon ');
+        title.setAttribute('title', config.name);
+        title.setAttribute('type', config.type);
+        dom.appendChild(title);
+        if (config.child) {
+            var icon=document.createElement('i');
+            icon.setAttribute('class','menu-submenu-arrow');
+            title.appendChild(icon);
+            var secUl=document.createElement('ul');
+            for(var i=0;i<config.child.length;i++){
+                var secLi=document.createElement('li');
+                secLi.innerHTML = config.child[i].icon+config.child[i].name;
+                secLi.setAttribute('class', 'iconfont secLiIcon ');
+                secLi.setAttribute('title', config.name);
+                secLi.setAttribute('draggable', true);
+                secUl.appendChild(secLi)
+            }
+            dom.appendChild(secUl);
         }
+        title.addEventListener('click',function(e){
+            if(e.target.parentNode.getAttribute('class') && e.target.parentNode.getAttribute('class').indexOf('unable')!=-1){
+                e.target.parentNode.setAttribute('class','')
+            }else{
+                e.target.parentNode.setAttribute('class','unable')
+            }
+        });
         return dom
     }
 }

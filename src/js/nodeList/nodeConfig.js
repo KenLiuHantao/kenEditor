@@ -5,20 +5,50 @@ let config=[
     {
         name:'数据源',
         icon:'',
+        type:'firstLv',
         child:[
             {
                 name:'KAFKA',
-                icon:'&#xe65a;'
+                icon:'&#xe65a;',
+                type:'sourceData'
             },
             {
                 name:'ElasticSearch',
-                icon:'&#xe80f;'
+                icon:'&#xe80f;',
+                type:'sourceData'
             },{
                 name:'Hive',
-                icon:'&#xe601;'
+                icon:'&#xe601;',
+                type:'sourceData'
             },{
                 name:'Hbase',
-                icon:'&#xe6e7;'
+                icon:'&#xe6e7;',
+                type:'sourceData'
+            }
+        ]
+    },
+    {
+        name:'目的地',
+        icon:'',
+        type:'firstLv',
+        child:[
+            {
+                name:'KAFKA',
+                icon:'&#xe65a;',
+                type:'targetData'
+            },
+            {
+                name:'ElasticSearch',
+                icon:'&#xe80f;',
+                type:'targetData'
+            },{
+                name:'Hive',
+                icon:'&#xe601;',
+                type:'targetData'
+            },{
+                name:'Hbase',
+                icon:'&#xe6e7;',
+                type:'targetData'
             }
         ]
     }
