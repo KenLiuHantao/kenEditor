@@ -6,17 +6,15 @@ import BgModel from './src/js/bgModel/bgModel';
 import EventController from './src/js/controllerList/baseControl'
 import ControllerList from './src/js/controllerList/controllerList'
 import NodeList from './src/js/nodeList/nodeListModel'
+import canvasNodeListModel from './src/js/baseModel/canvasNodeListModel'
 import './src/css/base.css';
 import './src/css/font.css'
 //建立背景canvas
 export let bgCanvas=new BgModel('app');
 //建立主canvas
 export let baseModel=new BaseModel('app');
-let canvas=baseModel.canvas;
+export let canvas=baseModel.canvas;
 
-
-let ctx=baseModel.ctx;
-baseModel.createNode();
 
 canvas.onmousedown=function(event){
     var x = event.pageX - canvas.getBoundingClientRect().left;
@@ -31,4 +29,8 @@ canvas.onmouseup=function(event){
     //bgCanvas.setBackground(true,'line');
 };
 export let controllerList=new ControllerList('app');
-export let nodeList=new NodeList('app')
+export let nodeList=new NodeList('app');
+export let canvasNodeList=new canvasNodeListModel();
+
+baseModel.renderNode();
+

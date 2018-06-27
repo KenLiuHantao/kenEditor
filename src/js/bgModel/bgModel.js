@@ -43,7 +43,6 @@ class bgModel {
         if(type){
             this.style=type
         }
-        console.log(this.style);
         switch (this.style) {
             case "line":
                 ctx.strokeStyle = "rgba(0,0,0,0.05)";

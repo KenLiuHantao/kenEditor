@@ -1,6 +1,7 @@
 /**
  * Created by liuhantao on 2018/6/8.
  */
+import EventController from '../controllerList/baseControl'
 class nodeModel {
     constructor() {
 
