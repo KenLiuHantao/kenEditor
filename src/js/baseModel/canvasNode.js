@@ -25,9 +25,9 @@ class Node {
         icon.innerHTML=this.icon;
         let content = icon.textContent;
         ctx.fillStyle = "black";
-        ctx.fillText(content,this.x-20,this.y);
+        ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
         ctx.font="18px Arial bold";
-        ctx.fillText(this.name,this.x-20,this.y+30);
+        ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
     }
 }
 export default Node

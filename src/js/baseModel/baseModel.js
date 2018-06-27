@@ -20,23 +20,46 @@ class baseModel {
         canvas.setAttribute('id', 'baseCanvas');
         //异步添加节点 避免获取不到父节点宽度
         this.build=false;
+        var that=this;
         setTimeout(function () {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 400);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
-            this.build=true;
+            that.build=true;
+            that.addDragListener()
         }, 100);
         this.canvas = canvas;
+        this.addOnce=false;
     }
 
-    renderNode() {
-        if(this.build){
+    renderNode(that) {
+        if(that.build){
             for (var i = 0; i < canvasNodeList.canvasNodeList.length; i++) {
                 let node = new Node(canvasNodeList.canvasNodeList[i]);
                 node.render();
             }
         }else{
-            setTimeout(this.renderNode,200)
+            setTimeout(function(){
+                that.renderNode(that)
+            },200)
+        }
+    }
+    addDragListener(){
+        if(!this.addOnce){
+            document.addEventListener('dragover',function(e){
+                e.preventDefault();
+            });
+            this.canvas.addEventListener('drop',function(e){
+                var config={
+                    icon:e.dataTransfer.getData('icon'),
+                    name:e.dataTransfer.getData('name'),
+                    type:e.dataTransfer.getData('type'),
+                    x:e.offsetX,
+                    y:e.offsetY
+                };
+                canvasNodeList.addCanvasNode(config)
+            });
+            this.addOnce=true;
         }
     }
 }

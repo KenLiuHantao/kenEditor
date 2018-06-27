@@ -32,5 +32,5 @@ export let controllerList=new ControllerList('app');
 export let nodeList=new NodeList('app');
 export let canvasNodeList=new canvasNodeListModel();
 
-baseModel.renderNode();
+baseModel.renderNode(baseModel);
 

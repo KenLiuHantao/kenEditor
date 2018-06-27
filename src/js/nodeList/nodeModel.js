@@ -27,9 +27,15 @@ class nodeModel {
                 var secLi=document.createElement('li');
                 secLi.innerHTML = config.child[i].icon+config.child[i].name;
                 secLi.setAttribute('class', 'iconfont secLiIcon ');
-                secLi.setAttribute('title', config.name);
+                secLi.setAttribute('title', config.child[i].name);
+                secLi.setAttribute('_type', config.child[i].type);
                 secLi.setAttribute('draggable', true);
-                secUl.appendChild(secLi)
+                secUl.appendChild(secLi);
+                let liConfig=config.child[i];
+                //单独添加事件
+                secLi.addEventListener('dragstart',function(e){
+                    EventController.emit('addNode',liConfig,e)
+                });
             }
             dom.appendChild(secUl);
         }
@@ -40,6 +46,7 @@ class nodeModel {
                 e.target.parentNode.setAttribute('class','unable')
             }
         });
+
         return dom
     }
 }

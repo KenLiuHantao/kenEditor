@@ -3,7 +3,7 @@
  */
 //这里都是预制的事件
 import EventController from './baseControl'
-import {bgCanvas,controllerList} from '../../../index'
+import {bgCanvas,controllerList,baseModel} from '../../../index'
 //控制栏一堆事件
 //1.后退
 EventController.addEventListener('goBack',function(){
@@ -63,8 +63,10 @@ EventController.addEventListener('changeBackgroundPoint',function(dom){
     }
 });
 //节点加入画布的事件
-EventController.addEventListener('addNode',function(){
-
+EventController.addEventListener('addNode',function(config,event){
+    event.dataTransfer.setData("icon", config.icon);
+    event.dataTransfer.setData("name", config.name);
+    event.dataTransfer.setData("type", config.type);
 });
 //绘制圆角矩形的方法
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
