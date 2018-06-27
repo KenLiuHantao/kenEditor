@@ -31,9 +31,8 @@ class baseModel {
 
     renderNode() {
         if(this.build){
-            let ctx = this.ctx;
             for (var i = 0; i < canvasNodeList.canvasNodeList.length; i++) {
-                let node = new Node();
+                let node = new Node(canvasNodeList.canvasNodeList[i]);
                 node.render();
             }
         }else{
