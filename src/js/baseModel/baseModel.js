@@ -1,5 +1,8 @@
 /**
  * Created by liuhantao on 2018/6/11.
+ * 基本画布模型
+ * 只包含基本样式属性和样式交互
+ * 业务逻辑尽量抽出来放baseControl里面去
  */
 import Node from './canvasNode';
 import {canvasNodeList} from'../../../index'
@@ -27,12 +30,14 @@ class baseModel {
             document.querySelector('#' + id).appendChild(canvas);
             that.build=true;
             that._addDragListener();
-            that._addHoverListener();
             that._addMouseDownListener();
+            that._addMouseMoveListener();
+            that._addMouseUpListener();
         }, 100);
         this.canvas = canvas;
         this.ctx=canvas.getContext('2d');
         this.addOnce=false;
+        this.isdragging=false;
     }
     clearAll(that){
         that.ctx.clearRect(0, 0, that.canvas.width, that.canvas.height)
@@ -70,11 +75,6 @@ class baseModel {
             this.addOnce=true;
         }
     }
-    _addHoverListener(){
-        this.canvas.onmousemove= function (event) {
-            //console.log(event.offsetX,event.offsetY)
-        }
-    }
     _addMouseDownListener(){
         var that=this;
         this.canvas.onmousedown= function (event) {
@@ -93,7 +93,7 @@ class baseModel {
 
                     //选择新节点
                     rect.active = true;
-
+                    that.isdragging=true;
                     //改变nodeList顺序来让激活的节点位于最上面
                     canvasNodeList.changeCanvasNodeListIndex(i,nodeList.length-1);
                     //更新显示
@@ -113,6 +113,25 @@ class baseModel {
                     that.renderNode(that);
                 }
             }
+        }
+    }
+    _addMouseMoveListener(){
+        var that=this;
+        this.canvas.onmousemove= function (event) {
+            //选中状态下选中节点跟着鼠标移动就行
+            if(that.isdragging){
+                let clickX=event.offsetX,clickY=event.offsetY;
+                canvasNodeList.selectNode.x=clickX;
+                canvasNodeList.selectNode.y=clickY;
+                that.clearAll(that);
+                that.renderNode(that);
+            }
+        }
+    }
+    _addMouseUpListener(){
+        var that=this;
+        this.canvas.onmouseup=function(){
+            that.isdragging=false;
         }
     }
 }
