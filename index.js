@@ -14,14 +14,6 @@ export let bgCanvas=new BgModel('app');
 //建立主canvas
 export let baseModel=new BaseModel('app');
 export let canvas=baseModel.canvas;
-
-
-canvas.onmousedown=function(event){
-    var x = event.pageX - canvas.getBoundingClientRect().left;
-    var y = event.pageY - canvas.getBoundingClientRect().top;
-    console.log(x,y,'down');
-    //bgCanvas.clearBackground();
-};
 canvas.onmouseup=function(event){
     var x = event.pageX - canvas.getBoundingClientRect().left;
     var y = event.pageY - canvas.getBoundingClientRect().top;

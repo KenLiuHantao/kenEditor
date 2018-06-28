@@ -2,9 +2,10 @@ import canvasNode from './canvasNode'
 class canvasNodeListModel {
     constructor() {
         this.canvasNodeList = [
-            {x: 200, y: 200, name: 'Hive',icon:'&#xe601;'},
-            {x: 400, y: 400, name: 'KAFKA',icon:'&#xe65a;'}
-        ]
+            {x: 200, y: 200, name: 'Hive',icon:'&#xe601;',active:false},
+            {x: 400, y: 400, name: 'KAFKA',icon:'&#xe65a;',active:false}
+        ];
+        this.selectNode=null;
     }
 
     setCanvasNodeList(arr) {
@@ -14,6 +15,11 @@ class canvasNodeListModel {
     getCanvasNodeList() {
         return this.canvasNodeList;
     }
+    changeCanvasNodeListIndex(from,to){
+        let data=this.canvasNodeList[to];
+        this.canvasNodeList[to]=this.canvasNodeList[from];
+        this.canvasNodeList[from]=data;
+    }
 
     addCanvasNode(obj) {
         this.canvasNodeList.push({
@@ -22,6 +28,7 @@ class canvasNodeListModel {
             x: obj.x,
             y: obj.y,
             type: obj.type,
+            active:false,
             attr: {}
         });
         let node=new canvasNode(obj);
