@@ -28,6 +28,30 @@ let config=[
         ]
     },
     {
+        name:'算子',
+        icon:'',
+        type:'firstLv',
+        child:[
+            {
+                name:'算子1',
+                icon:'',
+                type:'tools'
+            },{
+                name:'算子2',
+                icon:'',
+                type:'tools'
+            },{
+                name:'算子3',
+                icon:'',
+                type:'tools'
+            },{
+                name:'算子4',
+                icon:'',
+                type:'tools'
+            }
+        ]
+    },
+    {
         name:'目的地',
         icon:'',
         type:'firstLv',

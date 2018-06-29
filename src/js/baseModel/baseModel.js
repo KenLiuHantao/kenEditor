@@ -120,9 +120,9 @@ class baseModel {
         this.canvas.onmousemove= function (event) {
             //选中状态下选中节点跟着鼠标移动就行
             if(that.isdragging){
-                let clickX=event.offsetX,clickY=event.offsetY;
-                canvasNodeList.selectNode.x=clickX;
-                canvasNodeList.selectNode.y=clickY;
+                let moveX=event.offsetX,moveY=event.offsetY;
+                canvasNodeList.selectNode.x=moveX;
+                canvasNodeList.selectNode.y=moveY;
                 that.clearAll(that);
                 that.renderNode(that);
             }

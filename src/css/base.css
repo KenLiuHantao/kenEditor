@@ -172,7 +172,7 @@ body{
     cursor: move;
 }
 #nodeList ul ul{
-    max-height: 1000px;
+    max-height: 300px;
     transition:max-height 0.2s;
 }
 #nodeList .unable>ul{

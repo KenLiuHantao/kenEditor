@@ -31,9 +31,34 @@ class Node {
         icon.innerHTML=this.icon;
         let content = icon.textContent;
         ctx.fillStyle = "black";
-        ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
-        ctx.font="18px Arial bold";
-        ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+        if(this.icon){
+            ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
+            ctx.font="18px Arial bold";
+            ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+        }else{
+            ctx.font="18px Arial bold";
+            ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+10);
+        }
+
+        //画可供链接的圆
+        ctx.beginPath();
+        if(this.type=='sourceData'){
+            ctx.arc(this.x+75,this.y,10,0,2*Math.PI);
+        }else if(this.type=='targetData'){
+            ctx.arc(this.x-75,this.y,10,0,2*Math.PI);
+        }else{
+            ctx.arc(this.x+75,this.y,10,0,2*Math.PI);
+            ctx.stroke();
+            ctx.fillStyle="#fff";
+            ctx.fill();
+            ctx.closePath();
+            ctx.beginPath();
+            ctx.arc(this.x-75,this.y,10,0,2*Math.PI);
+        }
+        ctx.stroke();
+        ctx.fillStyle="#fff";
+        ctx.fill();
+        ctx.closePath();
     }
 }
 export default Node
