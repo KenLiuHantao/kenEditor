@@ -38,6 +38,8 @@ class baseModel {
         this.ctx=canvas.getContext('2d');
         this.addOnce=false;
         this.isdragging=false;
+        this.draggingOffsetX=0;
+        this.draggingOffsetY=0;
     }
     clearAll(that){
         that.ctx.clearRect(0, 0, that.canvas.width, that.canvas.height)
@@ -90,7 +92,9 @@ class baseModel {
                     // 清除之前选择的节点
                     if (canvasNodeList.selectNode != null) canvasNodeList.selectNode.active = false;
                     canvasNodeList.selectNode = rect;
-
+                    //记录选点和中心点的偏移量
+                    that.draggingOffsetX=clickX-rect.x;
+                    that.draggingOffsetY=clickY-rect.y;
                     //选择新节点
                     rect.active = true;
                     that.isdragging=true;
@@ -121,8 +125,8 @@ class baseModel {
             //选中状态下选中节点跟着鼠标移动就行
             if(that.isdragging){
                 let moveX=event.offsetX,moveY=event.offsetY;
-                canvasNodeList.selectNode.x=moveX;
-                canvasNodeList.selectNode.y=moveY;
+                canvasNodeList.selectNode.x=moveX-that.draggingOffsetX;
+                canvasNodeList.selectNode.y=moveY-that.draggingOffsetY;
                 that.clearAll(that);
                 that.renderNode(that);
             }
@@ -132,6 +136,8 @@ class baseModel {
         var that=this;
         this.canvas.onmouseup=function(){
             that.isdragging=false;
+            that.draggingOffsetX=0;
+            that.draggingOffsetY=0;
         }
     }
 }
