@@ -5,6 +5,7 @@
  * 业务逻辑尽量抽出来放baseControl里面去
  */
 import Node from './canvasNode';
+import EventController from '../controllerList/baseControl'
 import {canvasNodeList} from'../../../index'
 class baseModel {
     constructor(id) {
@@ -115,6 +116,7 @@ class baseModel {
                     canvasNodeList.selectNode = null;
                     that.clearAll(that);
                     that.renderNode(that);
+                    //EventController.emit()
                 }
             }
         }

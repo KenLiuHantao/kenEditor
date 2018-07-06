@@ -3,7 +3,7 @@
  */
 //这里都是预制的事件
 import EventController from './baseControl'
-import {bgCanvas,controllerList,baseModel} from '../../../index'
+import {bgCanvas,controllerList,baseModel,canvasNodeList} from '../../../index'
 //控制栏一堆事件
 //1.后退
 EventController.addEventListener('goBack',function(){
@@ -81,3 +81,19 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
     this.closePath();
     return this;
 };
+//键盘事件
+document.addEventListener('keyup',function(e){
+    console.log(e.keyCode);
+    //删除节点事件
+    if(e.keyCode==46){
+        if(canvasNodeList.selectNode){
+            var nodeList=canvasNodeList.getCanvasNodeList();
+            var newList=nodeList.filter(function(node){
+                return node.active!=true;
+            });
+            canvasNodeList.setCanvasNodeList(newList);
+            baseModel.clearAll(baseModel);
+            baseModel.renderNode(baseModel);
+        }
+    }
+});
