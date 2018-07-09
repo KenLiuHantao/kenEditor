@@ -14,7 +14,6 @@ class canvasLine {
     render() {
         let ctx = canvas.getContext('2d');
         ctx.beginPath();
-        ctx.moveTo(this.from.x+75, this.from.y);
         ctx.lineWidth = 5;
         ctx.strokeStyle = "#8a8787";
         var controlPoint1={
@@ -25,8 +24,35 @@ class canvasLine {
             x:(this.from.x+this.to.x)/2,
             y:this.to.y
         };
-        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y, this.to.x-75,this.to.y);
+        var beginPoint={
+            x:this.from.x+75,
+            y:this.from.y
+        };
+        var endPoint={
+            x:this.to.x-75,
+            y:this.to.y
+        };
+        ctx.moveTo(beginPoint.x, beginPoint.y);
+        if(endPoint.x>beginPoint.x){
+            ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x-20,endPoint.y);
+        }else{
+            ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x+20,endPoint.y);
+        }
         ctx.stroke();
+        //线画完了画箭头
+        ctx.beginPath();
+        if(endPoint.x>beginPoint.x){
+            ctx.moveTo(endPoint.x-10,endPoint.y);
+            ctx.lineTo(endPoint.x-25,endPoint.y+10);
+            ctx.lineTo(endPoint.x-25,endPoint.y-10);
+        }else{
+            ctx.moveTo(endPoint.x+10,endPoint.y);
+            ctx.lineTo(endPoint.x+25,endPoint.y+10);
+            ctx.lineTo(endPoint.x+25,endPoint.y-10);
+        }
+        ctx.closePath();
+        ctx.fillStyle="#8a8787";
+        ctx.fill();
     }
 }
 export default canvasLine
