@@ -25,7 +25,13 @@ export let controllerList=new ControllerList('app');
 export let nodeList=new NodeList('app');
 export let canvasNodeList=new canvasNodeListModel();
 export let canvasLineList=new canvasLineListModel();
-
+//临时放着的线条demo数据
+canvasLineList.setCanvasLine([{
+    from:canvasNodeList.canvasNodeList[0],
+    to:canvasNodeList.canvasNodeList[1],
+    active:false,
+    complete:true
+}]);
 baseModel.renderLine(baseModel);
 baseModel.renderNode(baseModel);
 

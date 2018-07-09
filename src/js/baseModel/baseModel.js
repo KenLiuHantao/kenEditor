@@ -59,11 +59,6 @@ class baseModel {
         }
     }
     renderLine(that){
-        canvasLineList.setCanvasLine([{
-            from:canvasNodeList.canvasNodeList[0],
-            to:canvasNodeList.canvasNodeList[1],
-            active:false
-        }]);
         if(that.build){
             for (var i = 0; i < canvasLineList.canvasLineList.length; i++) {
                 let line = new Line(canvasLineList.canvasLineList[i]);
