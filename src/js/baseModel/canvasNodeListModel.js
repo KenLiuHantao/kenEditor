@@ -5,7 +5,7 @@ class canvasNodeListModel {
             {x: 200, y: 200, name: 'Hive',icon:'&#xe601;',active:false,type:'sourceData'},
             {x: 400, y: 400, name: 'KAFKA',icon:'&#xe65a;',active:false,type:'targetData'}
         ];
-        this.selectNode=null;
+        this.selectLine=null;
     }
 
     setCanvasNodeList(arr) {

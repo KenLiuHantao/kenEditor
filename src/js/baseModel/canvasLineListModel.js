@@ -8,6 +8,9 @@ class canvasLineListModel{
         ];
         this.selectLine=null;
     }
+    setCanvasLine(arr){
+        this.canvasLineList=arr;
+    }
     addCanvasLine(){
 
     }

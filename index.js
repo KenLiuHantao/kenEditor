@@ -7,6 +7,7 @@ import EventController from './src/js/controllerList/baseControl'
 import ControllerList from './src/js/controllerList/controllerList'
 import NodeList from './src/js/nodeList/nodeListModel'
 import canvasNodeListModel from './src/js/baseModel/canvasNodeListModel'
+import canvasLineListModel from './src/js/baseModel/canvasLineListModel'
 import './src/css/base.css';
 import './src/css/font.css'
 //建立背景canvas
@@ -23,6 +24,9 @@ canvas.onmouseup=function(event){
 export let controllerList=new ControllerList('app');
 export let nodeList=new NodeList('app');
 export let canvasNodeList=new canvasNodeListModel();
+export let canvasLineList=new canvasLineListModel();
 
+baseModel.renderLine(baseModel);
 baseModel.renderNode(baseModel);
+
 
