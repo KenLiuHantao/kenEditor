@@ -7,7 +7,10 @@
 import Node from './canvasNode';
 import Line from './canvasLine';
 import EventController from '../controllerList/baseControl'
-import {canvasNodeList,canvasLineList} from'../../../index'
+import kenEditor from'../../../index'
+let canvasNodeList=kenEditor.canvasNodeList;
+let canvasLineList=kenEditor.canvasLineList;
+console.log(canvasNodeList,canvasLineList,kenEditor)
 class baseModel {
     constructor(id) {
         //在传入id的dom下新建一个核心canvas

@@ -1,7 +1,8 @@
 /**
  * Created by liuhantao on 2018/6/11.
  */
-import {canvas} from '../../../index.js'
+import kenEditor from'../../../index'
+let canvas=kenEditor.canvas;
 let defaultConfig = {};
 class Node {
     constructor(config = defaultConfig) {

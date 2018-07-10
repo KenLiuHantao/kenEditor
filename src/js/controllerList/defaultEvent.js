@@ -3,7 +3,11 @@
  */
 //这里都是预制的事件
 import EventController from './baseControl'
-import {bgCanvas,controllerList,baseModel,canvasNodeList} from '../../../index'
+import kenEditor from'../../../index'
+let bgCanvas=kenEditor.canvas;
+let controllerList=kenEditor.controllerList;
+let baseModel=kenEditor.baseModel;
+let canvasNodeList=kenEditor.canvasNodeList;
 //控制栏一堆事件
 //1.后退
 EventController.addEventListener('goBack',function(){

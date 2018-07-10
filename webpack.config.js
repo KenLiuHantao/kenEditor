@@ -4,6 +4,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
     devtool: 'cheap-source-map',
@@ -50,6 +51,20 @@ module.exports = {
             filename: '[name].css',
             chunkFilename: '[id].css'
         }),
-        new ExtractTextPlugin("[name].css",{allChunks: true})
-    ]
+        new ExtractTextPlugin("[name].css", {allChunks: true})
+    ],
+    optimization: {
+        runtimeChunk: {
+            name: "manifest"
+        },
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendor",
+                    chunks: "all"
+                }
+            }
+        }
+    }
 };

@@ -1,10 +1,10 @@
 {
-  "name": "canvas",
-  "version": "1.0.0",
+  "name": "kenEditor",
+  "version": "1.0.1",
   "description": "a demo",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --mode production",
     "dev": "webpack-dev-server --open"
   },
   "author": "kenliu",
