@@ -35,6 +35,6 @@ kenEditor.init = function (dom, width, height) {
 window.$kenEditor=kenEditor;
 
 
-exports.kenEditor=kenEditor;
+export default kenEditor
 
 
