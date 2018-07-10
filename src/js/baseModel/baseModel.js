@@ -19,11 +19,8 @@ class baseModel {
             console.error("Can't find DOM with #" + id + '!');
             return
         }
-
         var canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'baseCanvas');
-        var clear = document.createElement('div');
-        clear.setAttribute('id', 'editor-clear');
         //异步添加节点 避免获取不到父节点宽度
         this.build=false;
         var that=this;
@@ -31,7 +28,6 @@ class baseModel {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 200);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
-            document.querySelector('#' + id).appendChild(clear);
             that.build=true;
             that._addDragListener();
             that._addMouseDownListener();
