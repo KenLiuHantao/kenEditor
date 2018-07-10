@@ -1,8 +1,6 @@
 /**
  * Created by liuhantao on 2018/6/29.
  */
-import kenEditor from'../../../index'
-let canvas=kenEditor.canvas;
 let defaultConfig = {};
 class canvasLine {
     constructor(config = defaultConfig) {
@@ -14,6 +12,7 @@ class canvasLine {
     }
 
     render() {
+        let canvas=$kenEditor.canvas;
         let ctx = canvas.getContext('2d');
         ctx.beginPath();
         ctx.lineWidth = 5;

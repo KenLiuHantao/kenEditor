@@ -3,11 +3,6 @@
  */
 //这里都是预制的事件
 import EventController from './baseControl'
-import kenEditor from'../../../index'
-let bgCanvas=kenEditor.canvas;
-let controllerList=kenEditor.controllerList;
-let baseModel=kenEditor.baseModel;
-let canvasNodeList=kenEditor.canvasNodeList;
 //控制栏一堆事件
 //1.后退
 EventController.addEventListener('goBack',function(){
@@ -48,6 +43,7 @@ EventController.addEventListener('setDefault',function(){
 });
 //10.变更背景图为线状
 EventController.addEventListener('changeBackgroundLine',function(dom){
+    let bgCanvas=$kenEditor.bgCanvas;
     if(dom.getAttribute('class').indexOf('active')!=-1){
         dom.setAttribute('class',dom.getAttribute('class').replace('active','default'));
         bgCanvas.clearBackground()
@@ -58,6 +54,7 @@ EventController.addEventListener('changeBackgroundLine',function(dom){
 });
 //11.变更背景图为点状
 EventController.addEventListener('changeBackgroundPoint',function(dom){
+    let bgCanvas=$kenEditor.bgCanvas;
     if(dom.getAttribute('class').indexOf('active')!=-1){
         dom.setAttribute('class',dom.getAttribute('class').replace('active','default'));
         bgCanvas.clearBackground()
@@ -87,7 +84,8 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
 };
 //键盘事件
 document.addEventListener('keyup',function(e){
-    console.log(e.keyCode);
+    let baseModel=$kenEditor.baseModel;
+    let canvasNodeList=$kenEditor.canvasNodeList;
     //删除节点事件
     if(e.keyCode==46){
         if(canvasNodeList.selectNode){

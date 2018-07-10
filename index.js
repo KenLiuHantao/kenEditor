@@ -10,18 +10,17 @@ import canvasNodeListModel from './src/js/baseModel/canvasNodeListModel'
 import canvasLineListModel from './src/js/baseModel/canvasLineListModel'
 import './src/css/base.css';
 import './src/css/font.css'
-console.log(0)
 let kenEditor={};
 kenEditor.init = function (dom, width, height) {
     //建立背景canvas
-    kenEditor.bgCanvas = new BgModel('app');
+    kenEditor.bgCanvas = new BgModel(dom);
     //建立主canvas
     kenEditor.canvasNodeList = new canvasNodeListModel();
     kenEditor.canvasLineList = new canvasLineListModel();
-    kenEditor.baseModel = new BaseModel('app');
+    kenEditor.baseModel = new BaseModel(dom);
     kenEditor.canvas = kenEditor.baseModel.canvas;
-    kenEditor.controllerList = new ControllerList('app');
-    kenEditor.nodeList = new NodeList('app');
+    kenEditor.controllerList = new ControllerList(dom);
+    kenEditor.nodeList = new NodeList(dom);
 
     //临时放着的线条demo数据
     kenEditor.canvasLineList.setCanvasLine([{
@@ -33,8 +32,9 @@ kenEditor.init = function (dom, width, height) {
     kenEditor.baseModel.renderLine(kenEditor.baseModel);
     kenEditor.baseModel.renderNode(kenEditor.baseModel);
 };
-//console.log(2)
-//kenEditor.init()
+window.$kenEditor=kenEditor;
+
+
 exports.kenEditor=kenEditor;
 
 

@@ -7,10 +7,6 @@
 import Node from './canvasNode';
 import Line from './canvasLine';
 import EventController from '../controllerList/baseControl'
-import kenEditor from'../../../index'
-let canvasNodeList=kenEditor.canvasNodeList;
-let canvasLineList=kenEditor.canvasLineList;
-console.log(canvasNodeList,canvasLineList,kenEditor)
 class baseModel {
     constructor(id) {
         //在传入id的dom下新建一个核心canvas
@@ -50,6 +46,7 @@ class baseModel {
         that.ctx.clearRect(0, 0, that.canvas.width, that.canvas.height)
     }
     renderNode(that) {
+        let canvasNodeList=$kenEditor.canvasNodeList;
         if(that.build){
             for (var i = 0; i < canvasNodeList.canvasNodeList.length; i++) {
                 let node = new Node(canvasNodeList.canvasNodeList[i]);
@@ -62,6 +59,7 @@ class baseModel {
         }
     }
     renderLine(that){
+        let canvasLineList=$kenEditor.canvasLineList;
         if(that.build){
             for (var i = 0; i < canvasLineList.canvasLineList.length; i++) {
                 let line = new Line(canvasLineList.canvasLineList[i]);
@@ -74,6 +72,7 @@ class baseModel {
         }
     }
     _addDragListener(){
+        let canvasNodeList=$kenEditor.canvasNodeList;
         if(!this.addOnce){
             document.addEventListener('dragover',function(e){
                 e.preventDefault();
@@ -97,6 +96,8 @@ class baseModel {
     }
     _addMouseDownListener(){
         var that=this;
+        let canvasNodeList=$kenEditor.canvasNodeList;
+        let canvasLineList=$kenEditor.canvasLineList;
         this.canvas.onmousedown= function (event) {
             let clickX=event.offsetX,clickY=event.offsetY;
             let nodeList=canvasNodeList.canvasNodeList;
@@ -141,6 +142,7 @@ class baseModel {
     }
     _addMouseMoveListener(){
         var that=this;
+        let canvasNodeList=$kenEditor.canvasNodeList;
         this.canvas.onmousemove= function (event) {
             //选中状态下选中节点跟着鼠标移动就行
             if(that.isdragging){
