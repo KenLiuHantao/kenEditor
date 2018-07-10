@@ -73,6 +73,7 @@ body{
     width: 179px;
     position: absolute;
     top:41px;
+    left: 0;
     border-right: 1px solid #A7A7A7;
     text-align: center;
     min-height: 600px;

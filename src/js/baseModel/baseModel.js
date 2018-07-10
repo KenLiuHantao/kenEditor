@@ -28,7 +28,7 @@ class baseModel {
         this.build=false;
         var that=this;
         setTimeout(function () {
-            canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 400);
+            canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 200);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
             document.querySelector('#' + id).appendChild(clear);
