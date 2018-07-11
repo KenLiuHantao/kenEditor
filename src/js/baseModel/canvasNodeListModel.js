@@ -22,15 +22,7 @@ class canvasNodeListModel {
     }
 
     addCanvasNode(obj) {
-        this.canvasNodeList.push({
-            name: obj.name,
-            icon: obj.icon,
-            x: obj.x,
-            y: obj.y,
-            type: obj.type,
-            active:false,
-            attr: {}
-        });
+        this.canvasNodeList.push(obj);
         let node=new canvasNode(obj);
         node.render();
     }

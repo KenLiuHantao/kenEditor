@@ -22,113 +22,143 @@ class baseModel {
         var canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'baseCanvas');
         //异步添加节点 避免获取不到父节点宽度
-        this.build=false;
-        var that=this;
+        this.build = false;
+        var that = this;
         setTimeout(function () {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 200);
             canvas.setAttribute('height', '600');
             document.querySelector('#' + id).appendChild(canvas);
-            that.build=true;
+            that.build = true;
             that._addDragListener();
             that._addMouseDownListener();
             that._addMouseMoveListener();
             that._addMouseUpListener();
         }, 100);
         this.canvas = canvas;
-        this.ctx=canvas.getContext('2d');
-        this.addOnce=false;
-        this.isdragging=false;
-        this.draggingOffsetX=0;
-        this.draggingOffsetY=0;
+        this.ctx = canvas.getContext('2d');
+        this.addOnce = false;
+        this.isdragging = false;
+        this.isLineing = false;
+        this.draggingOffsetX = 0;
+        this.draggingOffsetY = 0;
     }
-    clearAll(that){
+
+    clearAll(that) {
         that.ctx.clearRect(0, 0, that.canvas.width, that.canvas.height)
     }
+
     renderNode(that) {
-        let canvasNodeList=$kenEditor.canvasNodeList;
-        if(that.build){
+        let canvasNodeList = $kenEditor.canvasNodeList;
+        if (that.build) {
             for (var i = 0; i < canvasNodeList.canvasNodeList.length; i++) {
                 let node = new Node(canvasNodeList.canvasNodeList[i]);
                 node.render();
             }
-        }else{
-            setTimeout(function(){
+        } else {
+            setTimeout(function () {
                 that.renderNode(that)
-            },200)
+            }, 200)
         }
     }
-    renderLine(that){
-        let canvasLineList=$kenEditor.canvasLineList;
-        if(that.build){
+
+    renderLine(that) {
+        let canvasLineList = $kenEditor.canvasLineList;
+        if (that.build) {
             for (var i = 0; i < canvasLineList.canvasLineList.length; i++) {
                 let line = new Line(canvasLineList.canvasLineList[i]);
                 line.render();
             }
-        }else{
-            setTimeout(function(){
+        } else {
+            setTimeout(function () {
                 that.renderLine(that)
-            },200)
+            }, 200)
         }
     }
-    _addDragListener(){
-        let canvasNodeList=$kenEditor.canvasNodeList;
-        if(!this.addOnce){
-            document.addEventListener('dragover',function(e){
+
+    _addDragListener() {
+        let canvasNodeList = $kenEditor.canvasNodeList;
+        if (!this.addOnce) {
+            document.addEventListener('dragover', function (e) {
                 e.preventDefault();
             });
-            this.canvas.addEventListener('drop',function(e){
-                if(!e.dataTransfer.getData('name')) {
+            this.canvas.addEventListener('drop', function (e) {
+                if (!e.dataTransfer.getData('name')) {
                     e.preventDefault();
                     return
                 }
-                var config={
-                    icon:e.dataTransfer.getData('icon'),
-                    name:e.dataTransfer.getData('name'),
-                    type:e.dataTransfer.getData('type'),
-                    x:e.offsetX,
-                    y:e.offsetY
+                var config = {
+                    icon: e.dataTransfer.getData('icon'),
+                    name: e.dataTransfer.getData('name'),
+                    type: e.dataTransfer.getData('type'),
+                    x: e.offsetX,
+                    y: e.offsetY
                 };
                 canvasNodeList.addCanvasNode(config)
             });
-            this.addOnce=true;
+            this.addOnce = true;
         }
     }
-    _addMouseDownListener(){
-        var that=this;
-        let canvasNodeList=$kenEditor.canvasNodeList;
-        let canvasLineList=$kenEditor.canvasLineList;
-        this.canvas.onmousedown= function (event) {
-            let clickX=event.offsetX,clickY=event.offsetY;
-            let nodeList=canvasNodeList.canvasNodeList;
+
+    _addMouseDownListener() {
+        var that = this;
+        let canvasNodeList = $kenEditor.canvasNodeList;
+        let canvasLineList = $kenEditor.canvasLineList;
+        this.canvas.onmousedown = function (event) {
+            let clickX = event.offsetX, clickY = event.offsetY;
+            let nodeList = canvasNodeList.canvasNodeList;
             //每次有效的点击都最好先去除之前的激活状态
-            if (canvasNodeList.selectNode != null){
+            if (canvasNodeList.selectNode != null) {
                 canvasNodeList.selectNode.active = false;
                 canvasNodeList.selectNode = null;
 
             }
-            if( canvasLineList.selectLine!=null){
+            if (canvasLineList.selectLine != null) {
                 canvasLineList.selectLine.active = false;
                 canvasLineList.selectLine = null;
             }
             that.clearAll(that);
             that.renderLine(that);
             that.renderNode(that);
-            for(var i=nodeList.length-1; i>=0; i--) {
+            //判断节点边拉线选中后的事件
+            for (var i = nodeList.length - 1; i >= 0; i--) {
+                var rect = nodeList[i];
+                //目的地没有拉线
+                if (rect.type == 'targetData') {
+
+                } else {
+                    // 判断这个点是否在节点中
+                    if (rect.x + 85 >= clickX && clickX >= rect.x + 65 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
+                        var newLine = {
+                            from: rect,
+                            to: {x: rect.x + 95, y: rect.y},
+                            active: false,
+                            complete: false,
+                            attr: {}
+                        };
+                        canvasLineList.addCanvasLine(newLine);
+                        canvasLineList.selectLine = newLine;
+                        that.isLineing = true;
+                        return
+                    }
+                }
+            }
+            //判断节点选中后的事件
+            for (var i = nodeList.length - 1; i >= 0; i--) {
                 var rect = nodeList[i];
                 //使用坐标计算这个点与中心坐标之间的关系
                 // 判断这个点是否在节点中
-                if ( rect.x-75<=clickX && clickX<= rect.x+75 && rect.y-50<=clickY  && clickY <= rect.y+50) {
+                if (rect.x - 75 <= clickX && clickX <= rect.x + 75 && rect.y - 50 <= clickY && clickY <= rect.y + 50) {
                     // 清除之前选择的节点
                     if (canvasNodeList.selectNode != null) canvasNodeList.selectNode.active = false;
                     canvasNodeList.selectNode = rect;
                     //记录选点和中心点的偏移量
-                    that.draggingOffsetX=clickX-rect.x;
-                    that.draggingOffsetY=clickY-rect.y;
+                    that.draggingOffsetX = clickX - rect.x;
+                    that.draggingOffsetY = clickY - rect.y;
                     //选择新节点
                     rect.active = true;
-                    that.isdragging=true;
+                    that.isdragging = true;
                     //改变nodeList顺序来让激活的节点位于最上面
-                    canvasNodeList.changeCanvasNodeListIndex(i,nodeList.length-1);
+                    canvasNodeList.changeCanvasNodeListIndex(i, nodeList.length - 1);
                     //更新显示
                     that.clearAll(that);
                     that.renderLine(that);
@@ -139,27 +169,82 @@ class baseModel {
             }
         }
     }
-    _addMouseMoveListener(){
-        var that=this;
-        let canvasNodeList=$kenEditor.canvasNodeList;
-        this.canvas.onmousemove= function (event) {
+
+    _addMouseMoveListener() {
+        var that = this;
+        let canvasNodeList = $kenEditor.canvasNodeList;
+        let canvasLineList = $kenEditor.canvasLineList;
+        this.canvas.onmousemove = function (event) {
             //选中状态下选中节点跟着鼠标移动就行
-            if(that.isdragging){
-                let moveX=event.offsetX,moveY=event.offsetY;
-                canvasNodeList.selectNode.x=moveX-that.draggingOffsetX;
-                canvasNodeList.selectNode.y=moveY-that.draggingOffsetY;
+            if (that.isdragging) {
+                let moveX = event.offsetX, moveY = event.offsetY;
+                canvasNodeList.selectNode.x = moveX - that.draggingOffsetX;
+                canvasNodeList.selectNode.y = moveY - that.draggingOffsetY;
+                that.clearAll(that);
+                that.renderLine(that);
+                that.renderNode(that);
+            }
+            //新增线条跟随移动
+            if (that.isLineing) {
+                let moveX = event.offsetX, moveY = event.offsetY;
+                canvasLineList.selectLine.to = {
+                    x: moveX + 95,
+                    y: moveY
+                };
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
             }
         }
     }
-    _addMouseUpListener(){
-        var that=this;
-        this.canvas.onmouseup=function(){
-            that.isdragging=false;
-            that.draggingOffsetX=0;
-            that.draggingOffsetY=0;
+
+    _addMouseUpListener() {
+        var that = this;
+        let canvasLineList = $kenEditor.canvasLineList;
+        let canvasNodeList = $kenEditor.canvasNodeList;
+        this.canvas.onmouseup = function (event) {
+            let clickX = event.offsetX, clickY = event.offsetY;
+            //区分拖拽节点和拉线
+            if (that.isdragging) {
+                that.isdragging = false;
+                that.draggingOffsetX = 0;
+                that.draggingOffsetY = 0;
+            }
+            if (that.isLineing) {
+                let nodeList = canvasNodeList.canvasNodeList;
+                that.isLineing = false;
+                //判断拉线拉到位没，没拉对的线直接删除
+                for (var i = nodeList.length - 1; i >= 0; i--) {
+                    var rect = nodeList[i];
+                    //数据源不能被拉
+                    if (rect.type == 'sourceData') {
+
+                    } else {
+                        // 判断这个点是否在节点中
+                        if (clickX >= rect.x - 85 && clickX <= rect.x - 65 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
+                            //拉到了也要检查是不是有重复的
+                            canvasLineList.selectLine.to = rect;
+                            var hasSame=false;
+                            for (var j = 0; j < canvasLineList.canvasLineList.length - 1; j++) {
+                                if(canvasLineList.canvasLineList[j].from==canvasLineList.selectLine.from && canvasLineList.canvasLineList[j].to==canvasLineList.selectLine.to ){
+                                    hasSame=true;
+                                }
+                            }
+                            if(!hasSame){
+                                canvasLineList.selectLine.complete = true;
+                                that.clearAll(that);
+                                that.renderLine(that);
+                                that.renderNode(that);
+                                return
+                            }
+                        }
+                    }
+                }
+                canvasLineList.canvasLineList.splice(canvasLineList.canvasLineList.length - 1, 1);
+                that.clearAll(that);
+                that.renderLine(that);
+                that.renderNode(that);
+            }
         }
     }
 }

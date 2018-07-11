@@ -27,13 +27,14 @@ kenEditor.init = function (dom, width, height) {
         from: kenEditor.canvasNodeList.canvasNodeList[0],
         to: kenEditor.canvasNodeList.canvasNodeList[1],
         active: false,
-        complete: true
+        complete: true,
+        attr:{}
     }]);
     kenEditor.baseModel.renderLine(kenEditor.baseModel);
     kenEditor.baseModel.renderNode(kenEditor.baseModel);
 };
 window.$kenEditor=kenEditor;
-
+//kenEditor.init('app');
 
 export default kenEditor
 
