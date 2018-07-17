@@ -29,7 +29,11 @@ class nodeModel {
             var secUl=document.createElement('ul');
             for(var i=0;i<config.child.length;i++){
                 var secLi=document.createElement('li');
-                secLi.innerHTML = config.child[i].icon+config.child[i].name;
+                if(config.child[i].icon!=null){
+                    secLi.innerHTML = config.child[i].icon+config.child[i].name;
+                }else{
+                    secLi.innerHTML = config.child[i].name;
+                }
                 secLi.setAttribute('class', 'iconfont secLiIcon ');
                 secLi.setAttribute('title', config.child[i].name);
                 secLi.setAttribute('_type', config.child[i].type);

@@ -46,7 +46,7 @@ let config=[
                 type:'tools'
             },{
                 name:'算子4',
-                icon:'',
+                icon:null,
                 type:'tools'
             }
         ]
