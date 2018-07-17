@@ -10,17 +10,20 @@ class nodeListModel {
         this.type='all';
         this.keyword='';
         this.nodeList = this._loadDefaultListConfig();
-        this._createNodeList(id)
+        this.render();
     }
-    _createNodeList(id){
+    _loadDefaultListConfig() {
+        return config
+    }
+    render(){
         if (document.querySelector('#nodeList')) {
             console.warn("Can't build second nodeList");
             return
         }
         var dom = document.createElement('div');
         dom.setAttribute('id', 'nodeList');
-        if (document.querySelector('#' + id) === null) {
-            console.error("Can't find DOM with #" + id + '!');
+        if (document.querySelector('#' + this.id) === null) {
+            console.error("Can't find DOM with #" + this.id + '!');
             return
         }
         //添加下拉搜索
@@ -32,10 +35,10 @@ class nodeListModel {
             search.appendChild(option)
         }
         dom.appendChild(search);
-        if(document.querySelector('#' + id).firstChild){
-            document.querySelector('#' + id).insertBefore( dom,document.querySelector('#' + id).firstChild);
+        if(document.querySelector('#' + this.id).firstChild){
+            document.querySelector('#' + this.id).insertBefore( dom,document.querySelector('#' + this.id).firstChild);
         }else{
-            document.querySelector('#' + id).appendChild( dom);
+            document.querySelector('#' + this.id).appendChild( dom);
         }
         var that=this;
         search.addEventListener('change',function(){
@@ -55,14 +58,12 @@ class nodeListModel {
         }
         dom.appendChild(ulDom);
     }
-    _loadDefaultListConfig() {
-        return config
+    setNodeList(arr) {
+        this.nodeList=arr;
     }
-    render(){
-
-    }
-    addNode(node) {
-
+    clearRender(){
+        var dom=document.getElementById(this.id);
+        dom.removeChild(document.getElementById('nodeList'))
     }
     changeType(type){
         this.type=type;
