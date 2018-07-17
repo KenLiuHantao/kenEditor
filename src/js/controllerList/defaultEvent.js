@@ -86,15 +86,27 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
 document.addEventListener('keyup',function(e){
     let baseModel=$kenEditor.baseModel;
     let canvasNodeList=$kenEditor.canvasNodeList;
+    let canvasLineList=$kenEditor.canvasLineList;
     //删除节点事件
     if(e.keyCode==46){
         if(canvasNodeList.selectNode){
             var nodeList=canvasNodeList.getCanvasNodeList();
+            var deleteNode;
             var newList=nodeList.filter(function(node){
+                if(node.active){
+                    deleteNode=node;
+                }
                 return node.active!=true;
             });
+            var newLine=canvasLineList.getCanvasLineList().filter(function(line){
+                if(line.from!=deleteNode&&line.to!=deleteNode){
+                    return line
+                }
+            });
             canvasNodeList.setCanvasNodeList(newList);
+            canvasLineList.setCanvasLine(newLine);
             baseModel.clearAll(baseModel);
+            baseModel.renderLine(baseModel);
             baseModel.renderNode(baseModel);
         }
     }
