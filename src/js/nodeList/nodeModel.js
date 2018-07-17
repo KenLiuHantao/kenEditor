@@ -13,7 +13,11 @@ class nodeModel {
         }
         var dom = document.createElement('li');
         var title= document.createElement('div');
-        title.innerHTML = config.icon+config.name;
+        if(config.icon!=null){
+            title.innerHTML = config.icon+config.name;
+        }else{
+            title.innerHTML = config.name;
+        }
         title.setAttribute('class', 'iconfont nodeIcon ');
         title.setAttribute('title', config.name);
         title.setAttribute('type', config.type);
