@@ -4,6 +4,7 @@
 let defaultConfig = {};
 class Node {
     constructor(config = defaultConfig) {
+        this.id=parseInt(Math.random()*1008611);
         this.name = config.name ? config.name : '';
         this.Alias = config.Alias ? config.Alias:'';
         this.icon = config.icon ? config.icon : null;

@@ -34,7 +34,7 @@ kenEditor.init = function (dom, width, height) {
     kenEditor.baseModel.renderNode(kenEditor.baseModel);
 };
 window.$kenEditor=kenEditor;
-kenEditor.init('app');
+//kenEditor.init('app');
 
 export default kenEditor
 
