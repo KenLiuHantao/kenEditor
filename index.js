@@ -21,7 +21,7 @@ kenEditor.init = function (dom, width, height) {
     kenEditor.canvas = kenEditor.baseModel.canvas;
     kenEditor.controllerList = new ControllerList(dom);
     kenEditor.nodeList = new NodeList(dom);
-
+    kenEditor.EventController=EventController;
     //临时放着的线条demo数据
     kenEditor.canvasLineList.setCanvasLine([{
         from: kenEditor.canvasNodeList.canvasNodeList[0],

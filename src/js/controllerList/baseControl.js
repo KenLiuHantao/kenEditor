@@ -42,6 +42,13 @@ var EventController={
             })
         }
     },
+    changeEventListener(name,func){
+        this.listenList.map(function(item,index,arr){
+            if(item.name==name){
+                item.func=func;
+            }
+        });
+    },
     removeEventListener(name){
         for(var i=0;i>this.listenList.lengthl;i++){
             if(this.listenList.name==name){
