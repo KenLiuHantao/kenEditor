@@ -4,6 +4,10 @@
 //这里都是预制的事件
 import EventController from './baseControl'
 //控制栏一堆事件
+//0.保存
+EventController.addEventListener('saveTask',function(){
+    console.log('保存')
+});
 //1.后退
 EventController.addEventListener('goBack',function(){
     console.log('后退')

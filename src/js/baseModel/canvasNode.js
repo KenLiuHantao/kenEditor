@@ -31,7 +31,7 @@ class Node {
         icon.innerHTML=this.icon;
         let content = icon.textContent;
         ctx.fillStyle = "black";
-        if(this.icon!=null){
+        if(this.icon!=null && this.icon!='null'){
             ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
             ctx.font="18px Arial bold";
             ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);

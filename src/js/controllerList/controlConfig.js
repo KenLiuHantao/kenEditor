@@ -3,6 +3,14 @@
  */
 let config=[
     {
+        name:'保存',
+        icon:'&#xe688;',
+        popup:'保存',
+        class:'default',
+        eventName:'saveTask',
+        status:''
+    },
+    {
         name:'后退',
         icon:'&#xe63a;',
         popup:'后退',
