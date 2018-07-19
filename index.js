@@ -22,16 +22,6 @@ kenEditor.init = function (dom, width, height) {
     kenEditor.controllerList = new ControllerList(dom);
     kenEditor.nodeList = new NodeList(dom);
     kenEditor.EventController=EventController;
-    //临时放着的线条demo数据
-    kenEditor.canvasLineList.setCanvasLine([{
-        from: kenEditor.canvasNodeList.canvasNodeList[0],
-        to: kenEditor.canvasNodeList.canvasNodeList[1],
-        active: false,
-        complete: true,
-        attr:{}
-    }]);
-    kenEditor.baseModel.renderLine(kenEditor.baseModel);
-    kenEditor.baseModel.renderNode(kenEditor.baseModel);
 };
 window.$kenEditor=kenEditor;
 //kenEditor.init('app');
