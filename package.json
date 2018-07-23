@@ -1,8 +1,8 @@
 {
   "name": "ken-editor",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "a demo",
-  "main": "index.js",
+  "main": "./dist/bundle-da7ae01f79daf94696e1.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --open"
