@@ -1,8 +1,8 @@
 {
   "name": "ken-editor",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "a demo",
-  "main": "./index.js",
+  "main": "./main.js",
   "scripts": {
     "build": "webpack --mode production",
     "dev": "webpack-dev-server --open"
