@@ -8,8 +8,11 @@
  * addEventListener 方法可以添加事件进入listenList
  * removeEventListener 方法根据name移除listenList
  */
-var EventController={
-    listenList:[],
+class EventController{
+    constructor(){
+        this.listenList=[]
+    }
+
     emit(eventName,...arg){
         let flag=true;
         this.listenList.map(function(item,index,arr){
@@ -21,7 +24,7 @@ var EventController={
         if(flag){
             console.warn(eventName+' not being monitored!')
         }
-    },
+    }
     addEventListener(name,func){
         if(typeof func !='function'){
             console.warn('The second parameter is not a function');
@@ -41,14 +44,14 @@ var EventController={
                 func:func
             })
         }
-    },
+    }
     changeEventListener(name,func){
         this.listenList.map(function(item,index,arr){
             if(item.name==name){
                 item.func=func;
             }
         });
-    },
+    }
     removeEventListener(name){
         for(var i=0;i>this.listenList.lengthl;i++){
             if(this.listenList.name==name){
@@ -56,9 +59,10 @@ var EventController={
                 break;
             }
         }
-    },
+    }
     getListenList(){
         return this.listenList
     }
-};
-export default EventController
+}
+var eventController=new EventController();
+export default eventController

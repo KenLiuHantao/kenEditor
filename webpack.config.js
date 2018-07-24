@@ -40,11 +40,11 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        //new HtmlWebpackPlugin({
-        //    filename: 'index.html',
-        //    template: './src/index.html',
-        //    inject: true
-        //}),
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            template: './src/index.html',
+            inject: true
+        }),
         new MiniCssExtractPlugin({
             // Options similar to the same options in webpackOptions.output
             // both options are optional
@@ -54,17 +54,17 @@ module.exports = {
         new ExtractTextPlugin("[name].css", {allChunks: true})
     ],
     optimization: {
-        //runtimeChunk: {
-        //    name: "manifest"
-        //},
-        //splitChunks: {
-        //    cacheGroups: {
-        //        commons: {
-        //            test: /[\\/]node_modules[\\/]/,
-        //            name: "vendor",
-        //            chunks: "all"
-        //        }
-        //    }
-        //}
+        runtimeChunk: {
+            name: "manifest"
+        },
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendor",
+                    chunks: "all"
+                }
+            }
+        }
     }
 };
