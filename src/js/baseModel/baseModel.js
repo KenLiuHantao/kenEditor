@@ -93,6 +93,7 @@ class baseModel {
                     icon: e.dataTransfer.getData('icon'),
                     name: e.dataTransfer.getData('name'),
                     type: e.dataTransfer.getData('type'),
+                    clazz: e.dataTransfer.getData('clazz'),
                     x: e.offsetX,
                     y: e.offsetY
                 };

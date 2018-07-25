@@ -76,6 +76,7 @@ EventController.addEventListener('addNode',function(config,event){
     event.dataTransfer.setData("icon", config.icon);
     event.dataTransfer.setData("name", config.name);
     event.dataTransfer.setData("type", config.type);
+    event.dataTransfer.setData("clazz", config.clazz);
 });
 //绘制圆角矩形的方法
 CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
