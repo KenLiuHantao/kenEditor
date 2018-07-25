@@ -34,7 +34,7 @@ class nodeListModel {
             option.appendChild(document.createTextNode(typeConfig[i]));
             search.appendChild(option)
         }
-        dom.appendChild(search);
+        //dom.appendChild(search);
         if(document.querySelector('#' + this.id).firstChild){
             document.querySelector('#' + this.id).insertBefore( dom,document.querySelector('#' + this.id).firstChild);
         }else{
@@ -48,7 +48,7 @@ class nodeListModel {
         var inputDom=document.createElement('input');
         inputDom.setAttribute('type','text');
         inputDom.setAttribute('placeholder','请输入关键字');
-        dom.appendChild(inputDom);
+        //dom.appendChild(inputDom);
         //遍历添加节点
         let ulDom=document.createElement('ul');
         let node=new nodeModel();
