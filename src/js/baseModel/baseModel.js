@@ -94,6 +94,7 @@ class baseModel {
                     name: e.dataTransfer.getData('name'),
                     type: e.dataTransfer.getData('type'),
                     clazz: e.dataTransfer.getData('clazz'),
+                    typeConfig: e.dataTransfer.getData('typeConfig'),
                     x: e.offsetX,
                     y: e.offsetY
                 };
