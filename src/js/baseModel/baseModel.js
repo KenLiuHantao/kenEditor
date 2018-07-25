@@ -161,7 +161,8 @@ class baseModel {
                     //判断双击时间
                     let clickTime=new Date();
                     if(clickTime-that.clickTime<=300 && rect==selectNode){
-                        EventController.emit('doubleClick',selectNode)
+                        EventController.emit('doubleClick',selectNode);
+                        break;
                     }else{
                         that.clickTime=clickTime;
                     }

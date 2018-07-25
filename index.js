@@ -24,7 +24,7 @@ kenEditor.init = function (dom, width, height) {
     kenEditor.EventController=EventController;
 };
 window.$kenEditor=kenEditor;
-kenEditor.init('app');
+//kenEditor.init('app');
 
 export default kenEditor
 
