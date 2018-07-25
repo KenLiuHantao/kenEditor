@@ -41,6 +41,8 @@ class baseModel {
         this.isLineing = false;
         this.draggingOffsetX = 0;
         this.draggingOffsetY = 0;
+        this.clickTime=new Date();
+        console.log(this.clickTime)
     }
 
     clearAll(that) {
@@ -107,6 +109,13 @@ class baseModel {
         this.canvas.onmousedown = function (event) {
             let clickX = event.offsetX, clickY = event.offsetY;
             let nodeList = canvasNodeList.canvasNodeList;
+
+            //临时记录之前激活的node 用来判断双击时间
+            let selectNode;
+            if (canvasNodeList.selectNode != null){
+                selectNode=canvasNodeList.selectNode
+            }
+
             //每次有效的点击都最好先去除之前的激活状态
             if (canvasNodeList.selectNode != null) {
                 canvasNodeList.selectNode.active = false;
@@ -149,6 +158,13 @@ class baseModel {
                 //使用坐标计算这个点与中心坐标之间的关系
                 // 判断这个点是否在节点中
                 if (rect.x - 75 <= clickX && clickX <= rect.x + 75 && rect.y - 50 <= clickY && clickY <= rect.y + 50) {
+                    //判断双击时间
+                    let clickTime=new Date();
+                    if(clickTime-that.clickTime<=300 && rect==selectNode){
+                        EventController.emit('doubleClick',selectNode)
+                    }else{
+                        that.clickTime=clickTime;
+                    }
                     // 清除之前选择的节点
                     if (canvasNodeList.selectNode != null) canvasNodeList.selectNode.active = false;
                     canvasNodeList.selectNode = rect;

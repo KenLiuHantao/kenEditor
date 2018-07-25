@@ -20,8 +20,8 @@ class canvasNodeListModel {
     }
 
     addCanvasNode(obj) {
-        this.canvasNodeList.push(obj);
         let node=new canvasNode(obj);
+        this.canvasNodeList.push(node);
         node.render();
     }
 }

@@ -67,6 +67,10 @@ EventController.addEventListener('changeBackgroundPoint',function(dom){
         bgCanvas.setBackground('point')
     }
 });
+//12.node双击事件
+EventController.addEventListener('doubleClick',function(node){
+    console.log(node)
+});
 //节点加入画布的事件
 EventController.addEventListener('addNode',function(config,event){
     event.dataTransfer.setData("icon", config.icon);
