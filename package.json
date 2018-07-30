@@ -1,6 +1,6 @@
 {
   "name": "ken-editor",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "a demo",
   "main": "./index.js",
   "scripts": {
@@ -20,8 +20,9 @@
     "jquery": "^3.3.1",
     "mini-css-extract-plugin": "^0.4.0",
     "style-loader": "^0.21.0",
-    "webpack": "^4.11.1",
-    "webpack-dev-server": "^3.1.4"
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.4",
+    "webpack-manifest-plugin": "1.3.2"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
