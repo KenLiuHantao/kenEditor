@@ -9,6 +9,7 @@ class Node {
         this.clazz = config.clazz ? config.clazz : '';
         this.configName = config.configName ? config.configName : '';
         this.configType = config.configType ? config.configType : '';
+        this.configId = config.configId ? config.configId : '';
         this.Alias = config.Alias ? config.Alias:'';
         this.icon = config.icon ? config.icon : null;
         this.x = config.x ? config.x : 0;

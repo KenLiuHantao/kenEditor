@@ -96,6 +96,7 @@ class baseModel {
                     clazz: e.dataTransfer.getData('clazz'),
                     configName: e.dataTransfer.getData('configName'),
                     configType: e.dataTransfer.getData('configType'),
+                    configId: e.dataTransfer.getData('configId'),
                     x: e.offsetX,
                     y: e.offsetY
                 };
