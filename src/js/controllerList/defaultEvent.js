@@ -71,6 +71,10 @@ EventController.addEventListener('changeBackgroundPoint',function(dom){
 EventController.addEventListener('doubleClick',function(node){
     console.log(node)
 });
+//13.添加连线事件
+EventController.addEventListener('addLine',function(line){
+   console.log(line,1)
+});
 //节点加入画布的事件
 EventController.addEventListener('addNode',function(config,event){
     event.dataTransfer.setData("icon", config.icon);

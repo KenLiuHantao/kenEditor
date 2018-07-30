@@ -42,7 +42,6 @@ class baseModel {
         this.draggingOffsetX = 0;
         this.draggingOffsetY = 0;
         this.clickTime=new Date();
-        console.log(this.clickTime)
     }
 
     clearAll(that) {
@@ -253,6 +252,7 @@ class baseModel {
                             }
                             if(!hasSame){
                                 canvasLineList.selectLine.complete = true;
+                                EventController.emit('addLine',canvasLineList.canvasLineList[canvasLineList.canvasLineList.length-1]);
                                 that.clearAll(that);
                                 that.renderLine(that);
                                 that.renderNode(that);

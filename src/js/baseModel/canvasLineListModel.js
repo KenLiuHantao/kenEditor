@@ -17,7 +17,7 @@ class canvasLineListModel {
 
     addCanvasLine(obj) {
         this.canvasLineList.push(obj);
-        let line = new canvasLine(obj);
+        //let line = new canvasLine(obj);
         //line添加的场景不一样，不需要在这里添加渲染
         //line.render();
     }

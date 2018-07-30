@@ -4,7 +4,7 @@
 let defaultConfig = {};
 class canvasLine {
     constructor(config = defaultConfig) {
-        this.id=parseInt(Math.random()*1008611);
+        this.id= config.id ? config.id : '';
         this.from = config.from ? config.from : {x: 0, y: 0};
         this.to = config.to ? config.to : {x: 0, y: 0};
         this.active = config.active ? config.active : false;
