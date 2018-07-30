@@ -78,6 +78,7 @@ class baseModel {
 
     _addDragListener() {
         let canvasNodeList = $kenEditor.canvasNodeList;
+        let that=this;
         if (!this.addOnce) {
             document.addEventListener('dragover', function (e) {
                 e.preventDefault();
@@ -88,7 +89,7 @@ class baseModel {
                     return
                 }
                 var config = {
-                    id:parseInt(Math.random()*1008611),
+                    id:that.setId(),
                     icon: e.dataTransfer.getData('icon'),
                     name: e.dataTransfer.getData('name'),
                     type: e.dataTransfer.getData('type'),
@@ -266,6 +267,23 @@ class baseModel {
                 that.renderLine(that);
                 that.renderNode(that);
             }
+        }
+    }
+
+    setId(){
+        var id=parseInt(Math.random()*1008611);
+        var flag=true;
+        var canvasNodeList = $kenEditor.canvasNodeList.canvasNodeList;
+        for(var i=0;i<canvasNodeList.length;i++){
+            if(canvasNodeList[i].id==id){
+                flag=false;
+                break
+            }
+        }
+        if(flag){
+            return id
+        }else{
+            return this.setId();
         }
     }
 }
