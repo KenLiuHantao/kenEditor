@@ -8,9 +8,14 @@ li{
 #app{
     display: block;
     position: relative;
+    height:100%;
+}
+html{
+    height: 100%;
 }
 body{
     margin: 0;
+    height:100%;
 }
 #baseCanvas{
     position: absolute;
@@ -78,6 +83,7 @@ body{
     border-right: 1px solid #A7A7A7;
     text-align: center;
     min-height: 600px;
+    height: calc(100% - 65px);
     padding: 10px;
 }
 #nodeList select{
