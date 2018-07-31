@@ -97,6 +97,9 @@ class baseModel {
                     configName: e.dataTransfer.getData('configName'),
                     configType: e.dataTransfer.getData('configType'),
                     configId: e.dataTransfer.getData('configId'),
+                    version: e.dataTransfer.getData('version'),
+                    groupId: e.dataTransfer.getData('groupId'),
+                    artifactId: e.dataTransfer.getData('artifactId'),
                     x: e.offsetX,
                     y: e.offsetY
                 };

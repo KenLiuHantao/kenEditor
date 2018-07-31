@@ -10,6 +10,9 @@ class Node {
         this.configName = config.configName ? config.configName : '';
         this.configType = config.configType ? config.configType : '';
         this.configId = config.configId ? config.configId : '';
+        this.version = config.version ? config.version : '';
+        this.groupId = config.groupId ? config.groupId : '';
+        this.artifactId = config.artifactId ? config.artifactId : '';
         this.Alias = config.Alias ? config.Alias:'';
         this.icon = config.icon ? config.icon : null;
         this.x = config.x ? config.x : 0;
