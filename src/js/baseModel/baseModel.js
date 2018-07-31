@@ -26,7 +26,7 @@ class baseModel {
         var that = this;
         setTimeout(function () {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 200);
-            canvas.setAttribute('height', document.querySelector('#' + id).offsetHeight - 50);
+            canvas.setAttribute('height', document.querySelector('#' + id).offsetHeight - 60);
             document.querySelector('#' + id).appendChild(canvas);
             that.build = true;
             that._addDragListener();
