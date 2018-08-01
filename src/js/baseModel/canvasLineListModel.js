@@ -8,7 +8,7 @@ class canvasLineListModel {
         this.selectLine = null;
     }
 
-    setCanvasLine(arr) {
+    setCanvasLineList(arr) {
         this.canvasLineList = arr;
     }
     getCanvasLineList() {

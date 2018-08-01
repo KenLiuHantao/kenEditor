@@ -123,7 +123,7 @@ document.addEventListener('keyup',function(e){
                 }
             });
             canvasNodeList.setCanvasNodeList(newList);
-            canvasLineList.setCanvasLine(newLine);
+            canvasLineList.setCanvasLineList(newLine);
             baseModel.clearAll(baseModel);
             baseModel.renderLine(baseModel);
             baseModel.renderNode(baseModel);

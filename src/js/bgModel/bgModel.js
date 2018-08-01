@@ -26,7 +26,7 @@ class bgModel {
         var that = this;
         setTimeout(function () {
             canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 200);
-            canvas.setAttribute('height',document.querySelector('#' + id).offsetHeight - 60);
+            canvas.setAttribute('height',document.querySelector('#' + id).offsetHeight - 45);
             document.querySelector('#' + id).appendChild(canvas);
             document.querySelector('#' + id).appendChild(clear);
             that.setBackground(that.style)

@@ -14,9 +14,9 @@ let config=[
         name:'后退',
         icon:'&#xe63a;',
         popup:'后退',
-        class:'default',
+        class:'disable',
         eventName:'goBack',
-        status:''
+        status:'disable'
     },
     {
         name:'前进',
