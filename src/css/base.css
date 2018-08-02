@@ -83,7 +83,7 @@ body{
     border-right: 1px solid #A7A7A7;
     text-align: center;
     min-height: 600px;
-    height: calc(100% - 45px);
+    height: calc(100% - 100px);
     padding: 10px;
 }
 #nodeList select{
