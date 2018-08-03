@@ -11,6 +11,7 @@ EventController.addEventListener('saveTask',function(){
 //1.后退
 EventController.addEventListener('goBack',function(){
     console.log('后退')
+    $kenEditor.recordList.goBack();
 });
 //2.前进
 EventController.addEventListener('goAhead',function(){
@@ -31,6 +32,7 @@ EventController.addEventListener('delete',function(){
 //6.放大
 EventController.addEventListener('setBig',function(){
     console.log('放大')
+    $kenEditor.controllerList.changeControllerStateByName('后退','default')
 });
 //7.缩小
 EventController.addEventListener('setSmall',function(){

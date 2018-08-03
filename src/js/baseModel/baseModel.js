@@ -103,7 +103,9 @@ class baseModel {
                     x: e.offsetX,
                     y: e.offsetY
                 };
-                canvasNodeList.addCanvasNode(config)
+                canvasNodeList.addCanvasNode(config);
+                //拖入节点时记录操作
+                $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.getCanvasNodeList(),$kenEditor.canvasLineList.getCanvasLineList());
             });
             this.addOnce = true;
         }

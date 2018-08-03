@@ -60,7 +60,7 @@ class ControllerList {
     deleteControllerByName(name){
         var index=null;
         for(var i=0;i<this.controllerList.length;i++){
-            if(controllerList[i].name==name){
+            if(this.controllerList[i].name==name){
                 index=i;
                 break;
             }
@@ -69,6 +69,25 @@ class ControllerList {
             this.controllerList.splice(index,1)
         }
         this.render();
+    }
+    changeControllerStateByName(name,state){
+        var index=null;
+        for(var i=0;i<this.controllerList.length;i++){
+            if(this.controllerList[i].name==name){
+                index=i;
+                break;
+            }
+        }
+        if(index || i==0){
+            this.controllerList[index].state=state;
+            this.controllerList[index].class=state;
+            this.singerRender(this.controllerList[index].name,state)
+        }
+    }
+    singerRender(title,className){
+        var dom=document.querySelector('i[title='+title+']');
+        dom.setAttribute('class','iconfont singleController '+className);
+        dom.setAttribute('status',className)
     }
     render(){
         var dom=document.getElementById("controllerList");

@@ -26,7 +26,7 @@ kenEditor.init = function (dom, width, height) {
     kenEditor.recordList=new recordList();
 };
 window.$kenEditor=kenEditor;
-//kenEditor.init('app');
+kenEditor.init('app');
 
 export default kenEditor
 
