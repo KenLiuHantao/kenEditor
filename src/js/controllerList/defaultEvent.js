@@ -16,6 +16,7 @@ EventController.addEventListener('goBack',function(){
 //2.前进
 EventController.addEventListener('goAhead',function(){
     console.log('前进')
+    $kenEditor.recordList.goNext();
 });
 //3.复制
 EventController.addEventListener('copy',function(){
@@ -32,7 +33,6 @@ EventController.addEventListener('delete',function(){
 //6.放大
 EventController.addEventListener('setBig',function(){
     console.log('放大')
-    $kenEditor.controllerList.changeControllerStateByName('后退','default')
 });
 //7.缩小
 EventController.addEventListener('setSmall',function(){

@@ -105,7 +105,7 @@ class baseModel {
                 };
                 canvasNodeList.addCanvasNode(config);
                 //拖入节点时记录操作
-                $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.getCanvasNodeList(),$kenEditor.canvasLineList.getCanvasLineList());
+                $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
             });
             this.addOnce = true;
         }
