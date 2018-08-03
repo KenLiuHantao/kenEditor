@@ -263,6 +263,8 @@ class baseModel {
                                 that.clearAll(that);
                                 that.renderLine(that);
                                 that.renderNode(that);
+                                //添加线条时记录操作
+                                $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
                                 return
                             }
                         }

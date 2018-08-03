@@ -129,6 +129,8 @@ document.addEventListener('keyup',function(e){
             baseModel.clearAll(baseModel);
             baseModel.renderLine(baseModel);
             baseModel.renderNode(baseModel);
+            //删除节点时记录操作
+            $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
         }
     }
 });
