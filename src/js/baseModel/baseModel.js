@@ -119,6 +119,7 @@ class baseModel {
         this.canvas.onmousedown = function (event) {
             let clickX = event.offsetX, clickY = event.offsetY;
             let nodeList = canvasNodeList.canvasNodeList;
+            let lineList = canvasLineList.canvasLineList;
 
             //临时记录之前激活的node 用来判断双击时间
             let selectNode;
@@ -132,9 +133,14 @@ class baseModel {
                 canvasNodeList.selectNode = null;
 
             }
+            //每次有效的点击都最好先去除之前的新增线条和激活线条
             if (canvasLineList.selectLine != null) {
-                canvasLineList.selectLine.active = false;
+                canvasLineList.selectLine.active=false;
                 canvasLineList.selectLine = null;
+            }
+            if (canvasLineList.activeLine != null) {
+                canvasLineList.activeLine.active=false;
+                canvasLineList.activeLine = null;
             }
             that.clearAll(that);
             that.renderLine(that);
@@ -187,6 +193,60 @@ class baseModel {
                     that.isdragging = true;
                     //改变nodeList顺序来让激活的节点位于最上面
                     canvasNodeList.changeCanvasNodeListIndex(i, nodeList.length - 1);
+                    //更新显示
+                    that.clearAll(that);
+                    that.renderLine(that);
+                    that.renderNode(that);
+                    //停止搜索
+                    break;
+                }
+            }
+            //判断线条选中后事件
+            for(var i=lineList.length-1;i>=0;i--){
+                let line=lineList[i];
+                //下面这一大堆是为了判断点击位置在不在线上
+                let ctx=that.ctx;
+                var controlPoint1={
+                    x:(line.from.x+line.to.x)/2,
+                    y:line.from.y
+                };
+                var controlPoint2={
+                    x:(line.from.x+line.to.x)/2,
+                    y:line.to.y
+                };
+                var beginPoint={
+                    x:line.from.x+75,
+                    y:line.from.y
+                };
+                var endPoint={
+                    x:line.to.x-75,
+                    y:line.to.y
+                };
+                ctx.beginPath();
+                ctx.lineWidth = 5;
+                ctx.moveTo(beginPoint.x, beginPoint.y);
+                if(endPoint.x>beginPoint.x){
+                    ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x-20,endPoint.y);
+                }else{
+                    ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x+20,endPoint.y);
+                }
+                var flag=false;
+                //直接判断范围太小很难选中 加上3px的容错让线条好选一点
+                for(var j=-3;j<=3;j++){
+                    if(flag){
+                        break;
+                    }
+                    for(var k=-3;k<=3;k++){
+                        if(ctx.isPointInPath(clickX+j,clickY+k)){
+                            flag=true;
+                            break;
+                        }
+                    }
+                }
+                if(flag){
+                    if (canvasLineList.activeLine != null) canvasLineList.activeLine.active = false;
+                    canvasLineList.activeLine = line;
+                    canvasLineList.activeLine.active=true;
                     //更新显示
                     that.clearAll(that);
                     that.renderLine(that);

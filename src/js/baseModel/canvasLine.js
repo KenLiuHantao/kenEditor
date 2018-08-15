@@ -17,7 +17,11 @@ class canvasLine {
         let ctx = canvas.getContext('2d');
         ctx.beginPath();
         ctx.lineWidth = 5;
-        ctx.strokeStyle = "#8a8787";
+        if(this.active){
+            ctx.strokeStyle="black";
+        }else{
+            ctx.strokeStyle="#8a8787";
+        }
         var controlPoint1={
             x:(this.from.x+this.to.x)/2,
             y:this.from.y
@@ -54,7 +58,11 @@ class canvasLine {
                 ctx.lineTo(endPoint.x+25,endPoint.y-10);
             }
             ctx.closePath();
-            ctx.fillStyle="#8a8787";
+            if(this.active){
+                ctx.fillStyle="black";
+            }else{
+                ctx.fillStyle="#8a8787";
+            }
             ctx.fill();
         }
     }

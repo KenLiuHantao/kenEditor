@@ -109,8 +109,8 @@ document.addEventListener('keyup',function(e){
     let baseModel=$kenEditor.baseModel;
     let canvasNodeList=$kenEditor.canvasNodeList;
     let canvasLineList=$kenEditor.canvasLineList;
-    //删除节点事件
     if(e.keyCode==46){
+        //删除节点事件
         if(canvasNodeList.selectNode){
             var nodeList=canvasNodeList.getCanvasNodeList();
             var deleteNode;
@@ -131,6 +131,20 @@ document.addEventListener('keyup',function(e){
             baseModel.renderLine(baseModel);
             baseModel.renderNode(baseModel);
             //删除节点时记录操作
+            $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
+        }
+        //删除线段事件
+        if(canvasLineList.activeLine){
+            var newLine=canvasLineList.getCanvasLineList().filter(function(line){
+                if(line.active!=true && line!=canvasLineList.activeLine){
+                    return line
+                }
+            });
+            canvasLineList.setCanvasLineList(newLine);
+            baseModel.clearAll(baseModel);
+            baseModel.renderLine(baseModel);
+            baseModel.renderNode(baseModel);
+            //删除线条时记录操作
             $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
         }
     }

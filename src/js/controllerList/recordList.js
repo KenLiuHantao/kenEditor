@@ -29,7 +29,6 @@ class recordList {
                 this.activeIndex--
             }
         }
-        console.log(this.recordList,this.activeIndex);
         $kenEditor.controllerList.changeControllerStateByName('后退','default');
         $kenEditor.controllerList.changeControllerStateByName('前进','disable')
     }

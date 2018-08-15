@@ -2,15 +2,18 @@
  * Created by liuhantao on 2018/6/29.
  */
 import canvasLine from './canvasLine';
+//selectLine是新增的画线  activeLine是选中的画线
 class canvasLineListModel {
     constructor() {
         this.canvasLineList = [];
         this.selectLine = null;
+        this.activeLine = null;
     }
 
     setCanvasLineList(arr) {
         this.canvasLineList = arr;
     }
+
     getCanvasLineList() {
         return this.canvasLineList;
     }
