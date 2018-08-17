@@ -196,6 +196,14 @@ body{
     width: 30px;
     height: 30px;
 }
+#nodeList .secLiIcon .secTitle{
+    display: inline-block;
+    padding-top: 5px;
+}
+#nodeList .secLiIcon .secTitleOnly{
+    display: inline-block;
+    padding-top: 5px;
+}
 #nodeList .unable>ul{
     max-height: 0;
 }
