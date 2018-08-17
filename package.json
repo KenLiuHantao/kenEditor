@@ -1,6 +1,6 @@
 {
   "name": "ken-editor",
-  "version": "1.0.40",
+  "version": "1.0.41",
   "description": "a demo",
   "main": "./index.js",
   "scripts": {

@@ -10,7 +10,9 @@ let config=[
             {
                 name:'KAFKA',
                 icon:'&#xe65a;',
-                type:'sourceData'
+                type:'sourceData',
+                background:'rgba(0,0,0,0.1)',
+                iconColor:'blue'
             },
             {
                 name:'ElasticSearch',
@@ -32,23 +34,23 @@ let config=[
         icon:'',
         type:'firstLv',
         child:[
-            //{
-            //    name:'算子1',
-            //    icon:'',
-            //    type:'tools'
-            //},{
-            //    name:'算子2',
-            //    icon:'',
-            //    type:'tools'
-            //},{
-            //    name:'算子3',
-            //    icon:'',
-            //    type:'tools'
-            //},{
-            //    name:'算子4',
-            //    icon:null,
-            //    type:'tools'
-            //}
+            {
+                name:'算子1',
+                icon:'',
+                type:'tools'
+            },{
+                name:'算子2',
+                icon:'',
+                type:'tools'
+            },{
+                name:'算子3',
+                icon:'',
+                type:'tools'
+            },{
+                name:'算子4',
+                icon:'',
+                type:'tools'
+            }
         ]
     },
     {

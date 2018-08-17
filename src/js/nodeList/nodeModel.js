@@ -30,14 +30,20 @@ class nodeModel {
             for(var i=0;i<config.child.length;i++){
                 var secLi=document.createElement('li');
                 if(config.child[i].icon!=null){
-                    secLi.innerHTML = config.child[i].icon+config.child[i].name;
+                    secLi.innerHTML = "<span class='icon'>"+config.child[i].icon+"</span></br>"+ "<span class='secTitle'>"+config.child[i].name+"</span>";
                 }else{
-                    secLi.innerHTML = config.child[i].name;
+                    secLi.innerHTML = "<span class='icon'>"+"</span></br>"+ "<span class='secTitleOnly'>"+config.child[i].name+"</span>";
                 }
                 secLi.setAttribute('class', 'iconfont secLiIcon ');
                 secLi.setAttribute('title', config.child[i].name);
                 secLi.setAttribute('_type', config.child[i].type);
                 secLi.setAttribute('draggable', true);
+                if(config.child[i].background){
+                    secLi.style.background=config.child[i].background;
+                }
+                if(config.child[i].iconColor){
+                    secLi.firstChild.style.color=config.child[i].iconColor;
+                }
                 secUl.appendChild(secLi);
                 let liConfig=config.child[i];
                 //单独添加事件
