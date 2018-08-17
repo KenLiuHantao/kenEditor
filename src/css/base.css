@@ -186,11 +186,14 @@ body{
     border:1px solid #c4c1c1;
     border-radius: 5px;
     text-align: center;
+    overflow: hidden;
 }
 #nodeList .secLiIcon .icon{
     padding-top: 5px;
     font-size: 30px;
     display: inline-block;
+    width: 30px;
+    height: 30px;
 }
 #nodeList .unable>ul{
     max-height: 0;

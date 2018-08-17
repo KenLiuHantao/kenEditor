@@ -24,7 +24,7 @@ let config=[
                 type:'sourceData'
             },{
                 name:'Hbase',
-                icon:'&#xe6e7;',
+                icon:null,
                 type:'sourceData'
             }
         ]
@@ -36,19 +36,19 @@ let config=[
         child:[
             {
                 name:'算子1',
-                icon:'',
+                icon:"&#xe629;",
                 type:'tools'
             },{
                 name:'算子2',
-                icon:'',
+                icon:null,
                 type:'tools'
             },{
                 name:'算子3',
-                icon:'',
+                icon:null,
                 type:'tools'
             },{
                 name:'算子4',
-                icon:'',
+                icon:null,
                 type:'tools'
             }
         ]
