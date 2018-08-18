@@ -24,15 +24,28 @@ class baseModel {
         //异步添加节点 避免获取不到父节点宽度
         this.build = false;
         var that = this;
+        //区分readOnly下的画布
         setTimeout(function () {
-            canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 300);
-            canvas.setAttribute('height', document.querySelector('#' + id).offsetHeight - 45);
-            document.querySelector('#' + id).appendChild(canvas);
-            that.build = true;
-            that._addDragListener();
-            that._addMouseDownListener();
-            that._addMouseMoveListener();
-            that._addMouseUpListener();
+            if(!$kenEditor.readOnly){
+                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 300);
+                canvas.setAttribute('height', document.querySelector('#' + id).offsetHeight - 45);
+                document.querySelector('#' + id).appendChild(canvas);
+                that.build = true;
+                that._addDragListener();
+                that._addMouseDownListener();
+                that._addMouseMoveListener();
+                that._addMouseUpListener();
+            }else{
+                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 40);
+                canvas.setAttribute('height', document.querySelector('#' + id).offsetHeight - 20);
+                document.querySelector('#' + id).appendChild(canvas);
+                that.build = true;
+                that._addDragListener();
+                that._addMouseDownListener();
+                that._addMouseMoveListener();
+                that._addMouseUpListener();
+                canvas.setAttribute('class','readOnly');
+            }
         }, 100);
         this.canvas = canvas;
         this.ctx = canvas.getContext('2d');

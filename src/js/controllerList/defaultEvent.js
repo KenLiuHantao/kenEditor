@@ -106,6 +106,10 @@ CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
 };
 //键盘事件
 document.addEventListener('keyup',function(e){
+    //只读状态不进入事件
+    if($kenEditor.readOnly){
+        return
+    }
     let baseModel=$kenEditor.baseModel;
     let canvasNodeList=$kenEditor.canvasNodeList;
     let canvasLineList=$kenEditor.canvasLineList;

@@ -24,12 +24,22 @@ class bgModel {
         clear.setAttribute('id', 'editor-clear');
         //异步添加节点 避免获取不到父节点宽度
         var that = this;
+        //区分readOnly下的画布
         setTimeout(function () {
-            canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 300);
-            canvas.setAttribute('height',document.querySelector('#' + id).offsetHeight - 45);
-            document.querySelector('#' + id).appendChild(canvas);
-            document.querySelector('#' + id).appendChild(clear);
-            that.setBackground(that.style)
+            if(!$kenEditor.readOnly){
+                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 300);
+                canvas.setAttribute('height',document.querySelector('#' + id).offsetHeight - 45);
+                document.querySelector('#' + id).appendChild(canvas);
+                document.querySelector('#' + id).appendChild(clear);
+                that.setBackground(that.style)
+            }else{
+                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 40);
+                canvas.setAttribute('height',document.querySelector('#' + id).offsetHeight - 20);
+                document.querySelector('#' + id).appendChild(canvas);
+                document.querySelector('#' + id).appendChild(clear);
+                canvas.setAttribute('class','readOnly');
+                that.setBackground(that.style)
+            }
         }, 200);
         this.canvas = canvas;
     }

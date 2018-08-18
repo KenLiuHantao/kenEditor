@@ -29,6 +29,11 @@ body{
     margin-left: 280px;
     z-index: 0;
 }
+.readOnly{
+    margin-left: 0!important;
+    top:0!important;
+    left: 0!important;
+}
 #controllerList{
     padding: 6px 20px 8px 20px;
     width: 100%;
