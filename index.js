@@ -16,8 +16,10 @@ kenEditor.init = function (dom, type) {
     //建立背景canvas
     kenEditor.bgCanvas = new BgModel(dom);
     //新增只读类型
-    if(type=='readOnly'){
+    if(type==='readOnly'){
         kenEditor.readOnly=true;
+    }else{
+        kenEditor.readOnly=false;
     }
     //建立主canvas
     kenEditor.canvasNodeList = new canvasNodeListModel();
@@ -34,7 +36,7 @@ kenEditor.init = function (dom, type) {
 
 };
 window.$kenEditor=kenEditor;
-//kenEditor.init('app','readOnly');
+//kenEditor.init('app');
 
 export default kenEditor
 
