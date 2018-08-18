@@ -125,6 +125,7 @@ body{
 }
 #nodeList ul{
     overflow: hidden;
+    padding-left: 5px;
 }
 #nodeList>ul{
     padding-bottom: 20px;
