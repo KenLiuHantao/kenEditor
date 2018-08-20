@@ -130,7 +130,8 @@ body{
 }
 #nodeList ul{
     overflow: hidden;
-    padding-left: 5px;
+    padding-left: 10px;
+    text-align: left;
 }
 #nodeList>ul{
     padding-bottom: 20px;
