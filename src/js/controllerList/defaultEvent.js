@@ -75,7 +75,11 @@ EventController.addEventListener('doubleClick',function(node){
 });
 //13.添加连线事件
 EventController.addEventListener('addLine',function(line){
-   console.log(line,1)
+   //console.log(line,1)
+});
+//14.线条双击时间
+EventController.addEventListener('doubleClickLine',function(line){
+   console.log(line,'double')
 });
 //节点加入画布的事件
 EventController.addEventListener('addNode',function(config,event){

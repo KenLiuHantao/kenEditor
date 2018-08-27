@@ -140,6 +140,11 @@ class baseModel {
                 selectNode=canvasNodeList.selectNode
             }
 
+            //临时记录之前激活的Line 用来判断双击时间
+            let activeLine;
+            if (canvasLineList.activeLine != null){
+                activeLine=canvasLineList.activeLine
+            }
             //每次有效的点击都最好先去除之前的激活状态
             if (canvasNodeList.selectNode != null) {
                 canvasNodeList.selectNode.active = false;
@@ -257,6 +262,14 @@ class baseModel {
                     }
                 }
                 if(flag){
+                    //判断双击时间
+                    let clickTime=new Date();
+                    if(clickTime-that.clickTime<=300 && line==activeLine){
+                        EventController.emit('doubleClickLine',activeLine);
+                        break;
+                    }else{
+                        that.clickTime=clickTime;
+                    }
                     if (canvasLineList.activeLine != null) canvasLineList.activeLine.active = false;
                     canvasLineList.activeLine = line;
                     canvasLineList.activeLine.active=true;
