@@ -337,6 +337,9 @@ class baseModel {
                         // 判断这个点是否在节点中
                         if (clickX >= rect.x - 85 && clickX <= rect.x - 65 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
                             //拉到了也要检查是不是有重复的
+                            if(!canvasLineList.selectLine){
+                                break;
+                            }
                             canvasLineList.selectLine.to = rect;
                             var hasSame=false;
                             for (var j = 0; j < canvasLineList.canvasLineList.length - 1; j++) {
