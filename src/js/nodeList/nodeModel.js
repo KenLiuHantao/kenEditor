@@ -54,6 +54,9 @@ class nodeModel {
             dom.appendChild(secUl);
         }
         title.addEventListener('click',function(e){
+            if(e.target.getAttribute('class')=='menu-submenu-arrow'){
+                return
+            }
             if(e.target.parentNode.getAttribute('class') && e.target.parentNode.getAttribute('class').indexOf('unable')!=-1){
                 e.target.parentNode.setAttribute('class','')
             }else{
