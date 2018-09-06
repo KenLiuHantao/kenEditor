@@ -81,6 +81,10 @@ EventController.addEventListener('addLine',function(line){
 EventController.addEventListener('doubleClickLine',function(line){
    console.log(line,'double')
 });
+//15.拖拽报错事件
+EventController.addEventListener('dragError',function(msg){
+    console.log(msg)
+});
 //节点加入画布的事件
 EventController.addEventListener('addNode',function(config,event){
     event.dataTransfer.setData("icon", config.icon);

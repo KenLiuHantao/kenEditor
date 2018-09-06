@@ -101,6 +101,34 @@ class baseModel {
                     e.preventDefault();
                     return
                 }
+                //为了项目需求临时加一个验证 数据源和目的地只能存在一个 其实我觉得不应该放在这里的
+                var nodeList=canvasNodeList.getCanvasNodeList();
+                if(e.dataTransfer.getData('type')=='sourceData'){
+                    var flag=false;
+                    for(var i=0;i<nodeList.length;i++){
+                        if(nodeList[i].type=='sourceData'){
+                            flag=true;
+                            break
+                        }
+                    }
+                    if(flag){
+                        EventController.emit('dragError','数据源只能存在一个');
+                        return
+                    }
+                }
+                if(e.dataTransfer.getData('type')=='targetData'){
+                    var flag=false;
+                    for(var i=0;i<nodeList.length;i++){
+                        if(nodeList[i].type=='targetData'){
+                            flag=true;
+                            break
+                        }
+                    }
+                    if(flag){
+                        EventController.emit('dragError','目的地只能存在一个');
+                        return
+                    }
+                }
                 var config = {
                     id:that.setId(),
                     icon: e.dataTransfer.getData('icon'),
