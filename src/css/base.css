@@ -89,7 +89,8 @@ body{
     text-align: center;
     height: calc(100% - 45px);
     overflow-y: auto;
-    padding: 10px;
+    padding: 0;
+    background: #F4F5F7;
 }
 #nodeList select{
     height: 30px;
@@ -138,11 +139,16 @@ body{
 }
 #nodeList .nodeIcon{
     font-size: 14px;
-    text-align: left;
-    padding: 10px 20px;
+    text-align: center;
+    padding: 5px 20px;
     position: relative;
     cursor: pointer;
     font-weight: bold;
+    color:white;
+    background: #426D98;
+}
+#nodeList>ul>li:nth-child(2) .nodeIcon{
+    background: #56960e ;
 }
 #nodeList .menu-submenu-arrow{
     -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -159,11 +165,11 @@ body{
     content: '';
     position: absolute;
     vertical-align: baseline;
-    background: #fff;
-    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.65)), to(rgba(0, 0, 0, 0.65)));
-    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
-    background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65));
+    background: white;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0.65)), to(rgba(255, 255, 255, 0.65)));
+    background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65));
+    background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65));
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65));
     width: 6px;
     height: 1.5px;
     border-radius: 2px;
