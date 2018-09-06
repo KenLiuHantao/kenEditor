@@ -52,8 +52,13 @@ class baseModel {
         this.addOnce = false;
         this.isdragging = false;
         this.isLineing = false;
+        this.isdraggingAll=false;
         this.draggingOffsetX = 0;
         this.draggingOffsetY = 0;
+        this.isdraggingAllOffsetX = 0;
+        this.isdraggingAllOffsetY = 0;
+        this.lastDragX=0;
+        this.lastDragY=0;
         this.clickTime=new Date();
     }
 
@@ -248,6 +253,7 @@ class baseModel {
                 }
             }
             //判断线条选中后事件
+            var choiceLine=false;
             for(var i=lineList.length-1;i>=0;i--){
                 let line=lineList[i];
                 //下面这一大堆是为了判断点击位置在不在线上
@@ -290,6 +296,7 @@ class baseModel {
                     }
                 }
                 if(flag){
+                    choiceLine=true;
                     //判断双击时间
                     let clickTime=new Date();
                     if(clickTime-that.clickTime<=300 && line==activeLine){
@@ -308,6 +315,12 @@ class baseModel {
                     //停止搜索
                     break;
                 }
+            }
+            //当既没有选择点也没有选择线 啥都没有选择的时候才有全局移动
+            if(!that.isdragging && !that.isLineing && !choiceLine){
+                that.isdraggingAll=true;
+                that.isdraggingAllOffsetX=clickX;
+                that.isdraggingAllOffsetY=clickY;
             }
         }
     }
@@ -333,6 +346,23 @@ class baseModel {
                     x: moveX + 95,
                     y: moveY
                 };
+                that.clearAll(that);
+                that.renderLine(that);
+                that.renderNode(that);
+            }
+            //没有选中任何东西的时候 鼠标拖拽移动全局
+            if(that.isdraggingAll){
+                let moveX = event.offsetX, moveY = event.offsetY;
+                let changeX=moveX-that.isdraggingAllOffsetX-that.lastDragX,changeY=moveY-that.isdraggingAllOffsetY-that.lastDragY;
+                let nodeList=canvasNodeList.getCanvasNodeList();
+                //遍历移动所有的点的坐标
+                for(var i=0;i<nodeList.length;i++){
+                    nodeList[i].x+=changeX;
+                    nodeList[i].y+=changeY;
+                }
+                //覆盖lastDragX
+                that.lastDragX=moveX-that.isdraggingAllOffsetX;
+                that.lastDragY=moveY-that.isdraggingAllOffsetY;
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
@@ -392,6 +422,11 @@ class baseModel {
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
+            }
+            if(that.isdraggingAll){
+                that.isdraggingAll=false;
+                that.lastDragX=0;
+                that.lastDragY=0;
             }
         }
     }
