@@ -131,11 +131,12 @@ body{
 }
 #nodeList ul{
     overflow: hidden;
-    padding-left: 10px;
-    text-align: left;
+    /*padding-left: 10px;*/
+    text-align: center;
 }
 #nodeList>ul{
     padding-bottom: 20px;
+    padding-left: 0;
 }
 #nodeList .nodeIcon{
     font-size: 14px;
@@ -146,6 +147,7 @@ body{
     font-weight: bold;
     color:white;
     background: #426D98;
+    margin: 10px 0;
 }
 #nodeList>ul>li:nth-child(2) .nodeIcon{
     background: #56960e ;

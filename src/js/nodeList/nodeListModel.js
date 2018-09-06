@@ -54,6 +54,10 @@ class nodeListModel {
         let node=new nodeModel();
         for(var i=0;i<this.nodeList.length;i++){
             var nodeDom=node.createNodeDom(this.nodeList[i]);
+            //领导要求算子默认关闭
+            if(i==1){
+                nodeDom.setAttribute('class', 'unable');
+            }
             ulDom.appendChild(nodeDom);
         }
         dom.appendChild(ulDom);
