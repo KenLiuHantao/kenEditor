@@ -52,6 +52,7 @@ class baseModel {
         this.addOnce = false;
         this.isdragging = false;
         this.isLineing = false;
+        this.isDbclick=false;
         this.isdraggingAll=false;
         this.draggingOffsetX = 0;
         this.draggingOffsetY = 0;
@@ -228,6 +229,7 @@ class baseModel {
                     //判断双击时间
                     let clickTime=new Date();
                     if(clickTime-that.clickTime<=300 && rect==selectNode){
+                        that.isDbclick=true;
                         EventController.emit('doubleClick',selectNode);
                         break;
                     }else{
@@ -317,7 +319,7 @@ class baseModel {
                 }
             }
             //当既没有选择点也没有选择线 啥都没有选择的时候才有全局移动
-            if(!that.isdragging && !that.isLineing && !choiceLine){
+            if(!that.isdragging && !that.isLineing && !choiceLine && !that.isDbclick){
                 that.isdraggingAll=true;
                 that.isdraggingAllOffsetX=clickX;
                 that.isdraggingAllOffsetY=clickY;
@@ -428,6 +430,7 @@ class baseModel {
                 that.lastDragX=0;
                 that.lastDragY=0;
             }
+            that.isDbclick=false;
         }
     }
 
