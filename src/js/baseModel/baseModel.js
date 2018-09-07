@@ -211,7 +211,7 @@ class baseModel {
                             to: {x: rect.x + 95, y: rect.y},
                             active: false,
                             complete: false,
-                            attr: {}
+                            attr: []
                         };
                         canvasLineList.addCanvasLine(newLine);
                         canvasLineList.selectLine = newLine;
