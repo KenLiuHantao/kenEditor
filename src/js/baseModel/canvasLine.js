@@ -9,7 +9,7 @@ class canvasLine {
         this.to = config.to ? config.to : {x: 0, y: 0};
         this.active = config.active ? config.active : false;
         this.complete=config.complete?config.complete:false;
-        this.attr = config.attr ? config.attr : {};
+        this.attr = config.attr ? config.attr : [];
     }
 
     render() {
