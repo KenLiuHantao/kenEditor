@@ -279,18 +279,34 @@ class baseModel {
                 ctx.beginPath();
                 ctx.lineWidth = 5;
                 ctx.moveTo(beginPoint.x, beginPoint.y);
-                if(endPoint.x>beginPoint.x){
-                    ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x-20,endPoint.y);
+                //解决两点完全平行的时候不好点的问题；
+                if(beginPoint.y-endPoint.y<5 && beginPoint.y-endPoint.y>=0){
+                    if(endPoint.x>beginPoint.x){
+                        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y-5, controlPoint2.x, controlPoint2.y+5,endPoint.x-20,endPoint.y);
+                    }else{
+                        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y-5, controlPoint2.x, controlPoint2.y+5,endPoint.x+20,endPoint.y);
+                    }
+                }else if(beginPoint.y-endPoint.y>-5 && beginPoint.y-endPoint.y<=0){
+                    if(endPoint.x>beginPoint.x){
+                        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y+5, controlPoint2.x, controlPoint2.y-5,endPoint.x-20,endPoint.y);
+                    }else{
+                        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y+5, controlPoint2.x, controlPoint2.y-5,endPoint.x+20,endPoint.y);
+                    }
                 }else{
-                    ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x+20,endPoint.y);
+                    if(endPoint.x>beginPoint.x){
+                        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x-20,endPoint.y);
+                    }else{
+                        ctx.bezierCurveTo(controlPoint1.x, controlPoint1.y, controlPoint2.x, controlPoint2.y,endPoint.x+20,endPoint.y);
+                    }
                 }
                 var flag=false;
-                //直接判断范围太小很难选中 加上3px的容错让线条好选一点
-                for(var j=-3;j<=3;j++){
+                console.log(controlPoint1,controlPoint2,beginPoint,endPoint)
+                //直接判断范围太小很难选中 加上5px的容错让线条好选一点
+                for(var j=-5;j<=5;j++){
                     if(flag){
                         break;
                     }
-                    for(var k=-3;k<=3;k++){
+                    for(var k=-5;k<=5;k++){
                         if(ctx.isPointInPath(clickX+j,clickY+k)){
                             flag=true;
                             break;
