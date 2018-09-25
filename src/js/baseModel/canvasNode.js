@@ -43,10 +43,20 @@ class Node {
         if(this.icon!=null && this.icon!='null'){
             ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
             ctx.font="18px Arial bold";
-            ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+            //新需求 有别名的时候优先展示别名
+            if(this.Alias){
+                ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+            }else{
+                ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+            }
         }else{
             ctx.font="18px Arial bold";
-            ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+10);
+            //新需求 有别名的时候优先展示别名
+            if(this.Alias){
+                ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+            }else{
+                ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+            }
         }
 
         //画可供链接的圆
