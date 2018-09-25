@@ -35,16 +35,18 @@ body{
     left: 0!important;
 }
 #controllerList{
-    padding: 6px 20px 8px 20px;
+    padding: 6px 20px 8px;
     width: 100%;
-    border: 1px solid #E9E9E9;
+    border-bottom: 1px solid #c3c3c3;
     border-left: 0;
     border-right: 0;
     height: 42px;
     line-height: 24px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    z-index: 3;
-    box-shadow: 0 8px 12px 0 rgba(0, 52, 107, 0.04);
+    z-index: 99;
+    -webkit-box-shadow: 0 8px 12px 0 rgba(0,52,107,.04);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
     text-align: left;
 }
 #controllerList .separator {
@@ -83,14 +85,16 @@ body{
     display: inline-block;
     width: 279px;
     position: absolute;
-    top:41px;
+    top: 42px;
     left: 0;
-    border-right: 1px solid #A7A7A7;
+    border-right: 1px solid #d6d6d6;
     text-align: center;
     height: calc(100% - 45px);
     overflow-y: auto;
     padding: 0;
-    background: #F4F5F7;
+    background: #f4f5f7;
+    z-index: 1;
+    box-shadow: 3px 0 3px rgba(0,0,0,0.1);
 }
 #nodeList select{
     height: 30px;
