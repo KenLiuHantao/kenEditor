@@ -33,14 +33,14 @@ class bgModel {
                 document.querySelector('#' + id).appendChild(clear);
                 that.setBackground(that.style)
             }else{
-                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth - 20);
+                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth);
                 canvas.setAttribute('height',document.querySelector('#' + id).offsetHeight);
                 document.querySelector('#' + id).appendChild(canvas);
                 document.querySelector('#' + id).appendChild(clear);
                 canvas.setAttribute('class','readOnly');
                 that.setBackground(that.style)
             }
-        }, 200);
+        }, 100);
         this.canvas = canvas;
     }
 

@@ -36,7 +36,7 @@ class baseModel {
                 that._addMouseMoveListener();
                 that._addMouseUpListener();
             }else{
-                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth-20);
+                canvas.setAttribute('width', document.querySelector('#' + id).offsetWidth);
                 canvas.setAttribute('height', document.querySelector('#' + id).offsetHeight);
                 document.querySelector('#' + id).appendChild(canvas);
                 that.build = true;
