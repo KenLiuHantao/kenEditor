@@ -148,6 +148,7 @@ class baseModel {
                     groupId: e.dataTransfer.getData('groupId'),
                     artifactId: e.dataTransfer.getData('artifactId'),
                     mark: e.dataTransfer.getData('mark'),
+                    background: e.dataTransfer.getData('background'),
                     x: e.offsetX,
                     y: e.offsetY
                 };

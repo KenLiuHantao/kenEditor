@@ -37,8 +37,10 @@ let config=[
             //{
             //    name:'算子1',
             //    icon:"&#xe629;",
-            //    type:'tools'
-            //},{
+            //    type:'tools',
+            //    background:'red'
+            //},
+            //{
             //    name:'算子2',
             //    icon:null,
             //    type:'tools'

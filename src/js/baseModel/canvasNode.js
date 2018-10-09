@@ -20,6 +20,7 @@ class Node {
         this.y = config.y ? config.y : 0;
         this.type = config.type ? config.type : 0;
         this.active= config.active ? config.active : false;
+        this.background= config.background ? config.background : '';
         this.attr = config.attr ? config.attr : {};
     }
 
@@ -27,10 +28,19 @@ class Node {
         let canvas=$kenEditor.canvas;
         let ctx=canvas.getContext('2d');
         ctx.lineWidth = 2;
-        if(!this.active){
-            ctx.fillStyle = "#ccc";
+        //新需求 如果节点有背景色的时候优先用节点的背景色 没有再用默认的
+        if(this.background!='undefined' && this.background!=''){
+            if(!this.active){
+                ctx.fillStyle = this.background;
+            }else{
+                ctx.fillStyle = "rgba(66,139,202,0.3)";
+            }
         }else{
-            ctx.fillStyle = "rgba(66,139,202,0.3)";
+            if(!this.active){
+                ctx.fillStyle = "#ccc";
+            }else{
+                ctx.fillStyle = "rgba(66,139,202,0.3)";
+            }
         }
         ctx.roundRect(this.x-75,this.y-50,150,100,10).fill();
         ctx.strokeStyle = "#8a8787";
