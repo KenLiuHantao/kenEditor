@@ -20,7 +20,8 @@ class Node {
         this.y = config.y ? config.y : 0;
         this.type = config.type ? config.type : 0;
         this.active= config.active ? config.active : false;
-        this.background= config.background ? config.background : '';
+        this.background= config.background ? config.background : null;
+        this.backgroundImage= config.backgroundImage ? config.backgroundImage : null;
         this.attr = config.attr ? config.attr : {};
     }
 
@@ -29,7 +30,7 @@ class Node {
         let ctx=canvas.getContext('2d');
         ctx.lineWidth = 2;
         //新需求 如果节点有背景色的时候优先用节点的背景色 没有再用默认的
-        if(this.background!='undefined' && this.background!=''){
+        if(this.background!='undefined' && this.background!='null'&& this.background!=''&& this.background!=null){
             if(!this.active){
                 ctx.fillStyle = this.background;
             }else{
@@ -50,8 +51,16 @@ class Node {
         icon.innerHTML=this.icon;
         let content = icon.textContent;
         ctx.fillStyle = "black";
-        if(this.icon!=null && this.icon!='null'){
-            ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
+        //新需求 如果有图片优先图片 没有图片才icon
+        if(this.backgroundImage!='undefined' && this.backgroundImage!='null'&& this.backgroundImage!=''&& this.backgroundImage!=null){
+            var Img = new Image();
+            Img.onload = function() {
+                draw(this);
+            };
+            Img.src = this.backgroundImage;
+            function draw(obj){
+                ctx.drawImage(obj,this.x-ctx.measureText(content).width/2,this.y,30,30);
+            }
             ctx.font="18px Arial bold";
             //新需求 有别名的时候优先展示别名
             if(this.Alias){
@@ -60,15 +69,25 @@ class Node {
                 ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
             }
         }else{
-            ctx.font="18px Arial bold";
-            //新需求 有别名的时候优先展示别名
-            if(this.Alias){
-                ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+            if(this.icon!=null && this.icon!='null'){
+                ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
+                ctx.font="18px Arial bold";
+                //新需求 有别名的时候优先展示别名
+                if(this.Alias){
+                    ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+                }else{
+                    ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+                }
             }else{
-                ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+                ctx.font="18px Arial bold";
+                //新需求 有别名的时候优先展示别名
+                if(this.Alias){
+                    ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+                }else{
+                    ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+                }
             }
         }
-
         //画可供链接的圆
         ctx.beginPath();
         if(this.type=='sourceData'){

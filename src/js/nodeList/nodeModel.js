@@ -29,7 +29,10 @@ class nodeModel {
             var secUl=document.createElement('ul');
             for(var i=0;i<config.child.length;i++){
                 var secLi=document.createElement('li');
-                if(config.child[i].icon){
+                //新需求 先找图片 没有图片才找icon
+                if(config.child[i].backgroundImage){
+                    secLi.innerHTML = "<img class='nodeImage' src="+config.child[i].backgroundImage+">"+"</img></br>"+ "<span class='secTitle'>"+config.child[i].name+"</span>";
+                } else if(config.child[i].icon){
                     secLi.innerHTML = "<span class='icon'>"+config.child[i].icon+"</span></br>"+ "<span class='secTitle'>"+config.child[i].name+"</span>";
                 }else{
                     secLi.innerHTML = "<span class='icon'>"+"&#xe629;"+"</span></br>"+ "<span class='secTitleOnly'>"+config.child[i].name+"</span>";
