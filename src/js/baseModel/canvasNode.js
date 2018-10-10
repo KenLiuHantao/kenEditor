@@ -48,6 +48,10 @@ class Node {
         ctx.roundRect(this.x-75,this.y-50,150,100,10).stroke();
         ctx.font="35px iconfont";
         let icon=document.createElement('i');
+        //icon 为空的时候用默认的
+        if(this.icon==null || this.icon=='null'){
+            this.icon='&#xe629';
+        }
         icon.innerHTML=this.icon;
         let content = icon.textContent;
         ctx.fillStyle = "black";
