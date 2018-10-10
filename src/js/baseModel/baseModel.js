@@ -149,6 +149,7 @@ class baseModel {
                     artifactId: e.dataTransfer.getData('artifactId'),
                     mark: e.dataTransfer.getData('mark'),
                     background: e.dataTransfer.getData('background'),
+                    backgroundImage: e.dataTransfer.getData('backgroundImage'),
                     x: e.offsetX,
                     y: e.offsetY
                 };

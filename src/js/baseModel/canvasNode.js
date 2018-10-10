@@ -54,12 +54,15 @@ class Node {
         //新需求 如果有图片优先图片 没有图片才icon
         if(this.backgroundImage!='undefined' && this.backgroundImage!='null'&& this.backgroundImage!=''&& this.backgroundImage!=null){
             var Img = new Image();
+            var that=this;
             Img.onload = function() {
                 draw(this);
             };
-            Img.src = this.backgroundImage;
+            Img.src = that.backgroundImage;
             function draw(obj){
-                ctx.drawImage(obj,this.x-ctx.measureText(content).width/2,this.y,30,30);
+                ctx.msImageSmoothingEnabled = false;
+                ctx.imageSmoothingEnabled = false;
+                ctx.drawImage(obj,that.x-ctx.measureText(content).width,that.y-30,30,30);
             }
             ctx.font="18px Arial bold";
             //新需求 有别名的时候优先展示别名
