@@ -66,7 +66,11 @@ class canvasLine {
             if (this.active) {
                 ctx.fillStyle = "black";
             } else {
-                ctx.fillStyle = "#8a8787";
+                if(this.color){
+                    ctx.fillStyle = this.color;
+                }else{
+                    ctx.fillStyle = "#8a8787";
+                }
             }
             ctx.fill();
         }
