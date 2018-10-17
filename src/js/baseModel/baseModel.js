@@ -302,7 +302,6 @@ class baseModel {
                     }
                 }
                 var flag=false;
-                console.log(controlPoint1,controlPoint2,beginPoint,endPoint)
                 //直接判断范围太小很难选中 加上5px的容错让线条好选一点
                 for(var j=-5;j<=5;j++){
                     if(flag){
@@ -355,12 +354,16 @@ class baseModel {
                 let moveX = event.offsetX, moveY = event.offsetY;
                 canvasNodeList.selectNode.x = moveX - that.draggingOffsetX;
                 canvasNodeList.selectNode.y = moveY - that.draggingOffsetY;
+                //console.log(moveY,that.draggingOffsetY)
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
             }
             //新增线条跟随移动
             if (that.isLineing) {
+                if(!canvasLineList.selectLine){
+                    return
+                }
                 let moveX = event.offsetX, moveY = event.offsetY;
                 canvasLineList.selectLine.to = {
                     x: moveX + 95,
