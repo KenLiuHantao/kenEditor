@@ -25,60 +25,63 @@ let config=[
         class:'disable',
         eventName:'goAhead',
         status:'disable'
-    },{
-        class:'separator'
-    },{
-        name:'复制',
-        icon:'&#xe66a;',
-        popup:'复制',
-        class:'default',
-        eventName:'copy',
-        status:''
-    },{
-        name:'粘贴',
-        icon:'&#xe62b;',
-        popup:'粘贴',
-        class:'disable',
-        eventName:'paste',
-        status:'disable'
-    },{
-        name:'删除',
-        icon:'&#xe61e;',
-        popup:'删除',
-        class:'disable',
-        eventName:'delete',
-        status:'disable'
-    },{
-        class:'separator'
-    },{
-        name:'放大',
-        icon:'&#xe600;',
-        popup:'放大',
-        class:'default',
-        eventName:'setBig',
-        status:''
-    },{
-        name:'缩小',
-        icon:'&#xe69a;',
-        popup:'缩小',
-        class:'default',
-        eventName:'setSmall',
-        status:''
-    },{
-        name:'适应画布',
-        icon:'&#xe61d;',
-        popup:'适应画布',
-        class:'default',
-        eventName:'setAuto',
-        status:''
-    },{
-        name:'实际尺寸',
-        icon:'&#xe62a;',
-        popup:'实际尺寸',
-        class:'default',
-        eventName:'setDefault',
-        status:''
-    },{
+    },
+    //{
+    //    class:'separator'
+    //},
+    //{
+    //    name:'复制',
+    //    icon:'&#xe66a;',
+    //    popup:'复制',
+    //    class:'default',
+    //    eventName:'copy',
+    //    status:''
+    //},{
+    //    name:'粘贴',
+    //    icon:'&#xe62b;',
+    //    popup:'粘贴',
+    //    class:'disable',
+    //    eventName:'paste',
+    //    status:'disable'
+    //},{
+    //    name:'删除',
+    //    icon:'&#xe61e;',
+    //    popup:'删除',
+    //    class:'disable',
+    //    eventName:'delete',
+    //    status:'disable'
+    //},{
+    //    class:'separator'
+    //},{
+    //    name:'放大',
+    //    icon:'&#xe600;',
+    //    popup:'放大',
+    //    class:'default',
+    //    eventName:'setBig',
+    //    status:''
+    //},{
+    //    name:'缩小',
+    //    icon:'&#xe69a;',
+    //    popup:'缩小',
+    //    class:'default',
+    //    eventName:'setSmall',
+    //    status:''
+    //},{
+    //    name:'适应画布',
+    //    icon:'&#xe61d;',
+    //    popup:'适应画布',
+    //    class:'default',
+    //    eventName:'setAuto',
+    //    status:''
+    //},{
+    //    name:'实际尺寸',
+    //    icon:'&#xe62a;',
+    //    popup:'实际尺寸',
+    //    class:'default',
+    //    eventName:'setDefault',
+    //    status:''
+    //},
+    {
         class:'separator'
     },{
         name:'网格背景',
