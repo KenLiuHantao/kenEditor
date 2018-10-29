@@ -354,7 +354,13 @@ class baseModel {
                 let moveX = event.offsetX, moveY = event.offsetY;
                 canvasNodeList.selectNode.x = moveX - that.draggingOffsetX;
                 canvasNodeList.selectNode.y = moveY - that.draggingOffsetY;
-                //console.log(moveY,that.draggingOffsetY)
+                //新增画布拖拽扩展
+                if(moveY>document.getElementById('baseCanvas').getAttribute('height')-50){
+                    console.log(moveY,that.draggingOffsetY,document.getElementById('baseCanvas').getAttribute('height'));
+                    document.getElementById('baseCanvas').setAttribute('height',parseInt(document.getElementById('baseCanvas').getAttribute('height'))+50);
+                    document.getElementById('canvasBg').setAttribute('height',parseInt(document.getElementById('canvasBg').getAttribute('height'))+50);
+                    $kenEditor.bgCanvas.setBackground();
+                }
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
