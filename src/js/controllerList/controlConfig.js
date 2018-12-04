@@ -26,17 +26,18 @@ let config=[
         eventName:'goAhead',
         status:'disable'
     },
+    {
+        class:'separator'
+    },
+    {
+        name:'上传',
+        icon:'&#xe63e;',
+        popup:'上传',
+        class:'default',
+        eventName:'upload',
+        status:''
+    },
     //{
-    //    class:'separator'
-    //},
-    //{
-    //    name:'复制',
-    //    icon:'&#xe66a;',
-    //    popup:'复制',
-    //    class:'default',
-    //    eventName:'copy',
-    //    status:''
-    //},{
     //    name:'粘贴',
     //    icon:'&#xe62b;',
     //    popup:'粘贴',

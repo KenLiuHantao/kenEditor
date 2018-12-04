@@ -22,6 +22,9 @@ EventController.addEventListener('goAhead',function(){
 EventController.addEventListener('copy',function(){
     console.log('复制')
 });
+EventController.addEventListener('upload',function(){
+    console.log('上传')
+});
 //4.粘贴
 EventController.addEventListener('paste',function(){
     console.log('粘贴')
