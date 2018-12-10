@@ -18,7 +18,7 @@ class EventController{
         this.listenList.map(function(item,index,arr){
             if(item.name==eventName){
                 flag=false;
-                item.func(...arg)
+                return item.func(...arg)
             }
         });
         if(flag){
