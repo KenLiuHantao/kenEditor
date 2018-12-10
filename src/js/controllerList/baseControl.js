@@ -15,14 +15,17 @@ class EventController{
 
     emit(eventName,...arg){
         let flag=true;
+        let ind;
         this.listenList.map(function(item,index,arr){
             if(item.name==eventName){
                 flag=false;
-                return item.func(...arg)
+                ind=index
             }
         });
         if(flag){
             console.warn(eventName+' not being monitored!')
+        }else{
+            return this.listenList[ind].func(...arg)
         }
     }
     addEventListener(name,func){
