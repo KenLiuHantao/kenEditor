@@ -110,6 +110,7 @@ class baseModel {
                 //为了项目需求临时加一个验证 数据源和目的地只能存在一个 其实我觉得不应该放在这里的
                 //果然。。。 二阶段就把这个验证给干掉了。。
                 //而且还要分情况处理
+                var flag2=true;
                 var nodeList=canvasNodeList.getCanvasNodeList();
                 if(e.dataTransfer.getData('type')=='sourceData'){
                     for(var i=0;i<nodeList.length;i++){
@@ -119,7 +120,7 @@ class baseModel {
                         }
                     }
                     if(flag){
-                        EventController.emit('sourceMore');
+                        flag2=EventController.emit('sourceMore');
                     }
                 }
                 if(e.dataTransfer.getData('type')=='targetData'){
@@ -131,30 +132,32 @@ class baseModel {
                         }
                     }
                     if(flag){
-                        EventController.emit('targetMore');
+                        flag2=EventController.emit('targetMore');
                     }
                 }
-                var config = {
-                    id:that.setId(),
-                    icon: e.dataTransfer.getData('icon'),
-                    name: e.dataTransfer.getData('name'),
-                    type: e.dataTransfer.getData('type'),
-                    clazz: e.dataTransfer.getData('clazz'),
-                    configName: e.dataTransfer.getData('configName'),
-                    configType: e.dataTransfer.getData('configType'),
-                    configId: e.dataTransfer.getData('configId'),
-                    version: e.dataTransfer.getData('version'),
-                    groupId: e.dataTransfer.getData('groupId'),
-                    artifactId: e.dataTransfer.getData('artifactId'),
-                    mark: e.dataTransfer.getData('mark'),
-                    background: e.dataTransfer.getData('background'),
-                    backgroundImage: e.dataTransfer.getData('backgroundImage'),
-                    x: e.offsetX,
-                    y: e.offsetY
-                };
-                canvasNodeList.addCanvasNode(config);
-                //拖入节点时记录操作
-                $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
+                if(flag2){
+                    var config = {
+                        id:that.setId(),
+                        icon: e.dataTransfer.getData('icon'),
+                        name: e.dataTransfer.getData('name'),
+                        type: e.dataTransfer.getData('type'),
+                        clazz: e.dataTransfer.getData('clazz'),
+                        configName: e.dataTransfer.getData('configName'),
+                        configType: e.dataTransfer.getData('configType'),
+                        configId: e.dataTransfer.getData('configId'),
+                        version: e.dataTransfer.getData('version'),
+                        groupId: e.dataTransfer.getData('groupId'),
+                        artifactId: e.dataTransfer.getData('artifactId'),
+                        mark: e.dataTransfer.getData('mark'),
+                        background: e.dataTransfer.getData('background'),
+                        backgroundImage: e.dataTransfer.getData('backgroundImage'),
+                        x: e.offsetX,
+                        y: e.offsetY
+                    };
+                    canvasNodeList.addCanvasNode(config);
+                    //拖入节点时记录操作
+                    $kenEditor.recordList.addRecord($kenEditor.canvasNodeList.canvasNodeList,$kenEditor.canvasLineList.canvasLineList);
+                }
             });
             this.addOnce = true;
         }
