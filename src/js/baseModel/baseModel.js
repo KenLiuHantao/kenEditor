@@ -363,7 +363,7 @@ class baseModel {
                     document.getElementById('canvasBg').setAttribute('height',parseInt(document.getElementById('canvasBg').getAttribute('height'))+50);
                     $kenEditor.bgCanvas.setBackground(null);
                     //拓展和有滚动条顺便跟着滚下来
-                    var div = document.getElementById('canvasBg');
+                    var div = document.getElementById('canvasBg').parentNode;
                     div.scrollTop = div.scrollHeight;
                 }
                 that.clearAll(that);
