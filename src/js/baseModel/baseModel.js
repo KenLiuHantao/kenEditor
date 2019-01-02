@@ -361,7 +361,10 @@ class baseModel {
                     console.log(moveY,that.draggingOffsetY,document.getElementById('baseCanvas').getAttribute('height'));
                     document.getElementById('baseCanvas').setAttribute('height',parseInt(document.getElementById('baseCanvas').getAttribute('height'))+50);
                     document.getElementById('canvasBg').setAttribute('height',parseInt(document.getElementById('canvasBg').getAttribute('height'))+50);
-                    $kenEditor.bgCanvas.setBackground();
+                    $kenEditor.bgCanvas.setBackground(null);
+                    //拓展和有滚动条顺便跟着滚下来
+                    var div = document.getElementById('canvasBg');
+                    div.scrollTop = div.scrollHeight;
                 }
                 that.clearAll(that);
                 that.renderLine(that);
