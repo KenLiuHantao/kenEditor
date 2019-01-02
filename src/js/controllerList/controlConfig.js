@@ -88,7 +88,7 @@ let config=[
         name:'网格背景',
         icon:'&#xe9bd;',
         popup:'网格背景',
-        class:'active',
+        class:'default',
         eventName:'changeBackgroundLine',
         status:''
     },{

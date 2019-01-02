@@ -17,7 +17,7 @@ class bgModel {
             console.error("Can't find DOM with #" + id + '!');
             return
         }
-        this.style='line';
+        this.style=null;
         var canvas = document.createElement('canvas');
         canvas.setAttribute('id', 'canvasBg');
         var clear = document.createElement('div');
