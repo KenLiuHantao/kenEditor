@@ -48,7 +48,6 @@ body{
     -webkit-box-shadow: 0 8px 12px 0 rgba(0,52,107,.04);
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
     text-align: left;
-    position: fixed;
     background: white;
 }
 #controllerList .separator {
@@ -86,7 +85,7 @@ body{
 #nodeList {
     display: inline-block;
     width: 279px;
-    position: fixed;
+    position: absolute;
     top: 42px;
     left: 0;
     border-right: 1px solid #d6d6d6;
