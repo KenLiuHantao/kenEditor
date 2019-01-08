@@ -83,6 +83,7 @@ class bgModel {
                 }
                 break;
             default:
+                ctx.fillStyle = "rgba(0,0,0,0)";
                 console.warn("At this version,We only support backGround for line or point")
         }
         ctx.restore();

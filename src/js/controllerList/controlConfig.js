@@ -82,22 +82,22 @@ let config=[
     //    eventName:'setDefault',
     //    status:''
     //},
-    {
-        class:'separator'
-    },{
-        name:'网格背景',
-        icon:'&#xe9bd;',
-        popup:'网格背景',
-        class:'default',
-        eventName:'changeBackgroundLine',
-        status:''
-    },{
-        name:'点线背景',
-        icon:'&#xe74b;',
-        popup:'点线背景',
-        class:'default',
-        eventName:'changeBackgroundPoint',
-        status:''
-    }
+    //{
+    //    class:'separator'
+    //},{
+    //    name:'网格背景',
+    //    icon:'&#xe9bd;',
+    //    popup:'网格背景',
+    //    class:'default',
+    //    eventName:'changeBackgroundLine',
+    //    status:''
+    //},{
+    //    name:'点线背景',
+    //    icon:'&#xe74b;',
+    //    popup:'点线背景',
+    //    class:'default',
+    //    eventName:'changeBackgroundPoint',
+    //    status:''
+    //}
 ];
 export default config
