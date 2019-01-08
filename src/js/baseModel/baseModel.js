@@ -209,10 +209,10 @@ class baseModel {
 
                 } else {
                     // 判断这个点是否在节点中
-                    if (rect.x + 85 >= clickX && clickX >= rect.x + 65 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
+                    if (rect.x + 70 >= clickX && clickX >= rect.x + 50 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
                         var newLine = {
                             from: rect,
-                            to: {x: rect.x + 95, y: rect.y},
+                            to: {x: rect.x + 80, y: rect.y},
                             active: false,
                             complete: false,
                             attr: []
@@ -229,7 +229,7 @@ class baseModel {
                 var rect = nodeList[i];
                 //使用坐标计算这个点与中心坐标之间的关系
                 // 判断这个点是否在节点中
-                if (rect.x - 75 <= clickX && clickX <= rect.x + 75 && rect.y - 50 <= clickY && clickY <= rect.y + 50) {
+                if (rect.x - 60 <= clickX && clickX <= rect.x + 60 && rect.y - 40 <= clickY && clickY <= rect.y + 40) {
                     //判断双击时间
                     let clickTime=new Date();
                     if(clickTime-that.clickTime<=300 && rect==selectNode){
@@ -273,15 +273,15 @@ class baseModel {
                     y:line.to.y
                 };
                 var beginPoint={
-                    x:line.from.x+75,
+                    x:line.from.x+60,
                     y:line.from.y
                 };
                 var endPoint={
-                    x:line.to.x-75,
+                    x:line.to.x-60,
                     y:line.to.y
                 };
                 ctx.beginPath();
-                ctx.lineWidth = 5;
+                ctx.lineWidth = 2;
                 ctx.moveTo(beginPoint.x, beginPoint.y);
                 //解决两点完全平行的时候不好点的问题；
                 if(beginPoint.y-endPoint.y<5 && beginPoint.y-endPoint.y>=0){
@@ -377,7 +377,7 @@ class baseModel {
                 }
                 let moveX = event.offsetX, moveY = event.offsetY;
                 canvasLineList.selectLine.to = {
-                    x: moveX + 95,
+                    x: moveX + 80,
                     y: moveY
                 };
                 that.clearAll(that);
@@ -427,7 +427,7 @@ class baseModel {
 
                     } else {
                         // 判断这个点是否在节点中
-                        if (clickX >= rect.x - 85 && clickX <= rect.x - 65 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
+                        if (clickX >= rect.x - 70 && clickX <= rect.x - 50 && rect.y - 10 <= clickY && clickY <= rect.y + 10) {
                             //拉到了也要检查是不是有重复的
                             if(!canvasLineList.selectLine){
                                 break;

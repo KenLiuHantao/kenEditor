@@ -38,14 +38,14 @@ class Node {
             }
         }else{
             if(!this.active){
-                ctx.fillStyle = "#ccc";
+                ctx.fillStyle = "#fff";
             }else{
                 ctx.fillStyle = "rgba(66,139,202,0.3)";
             }
         }
-        ctx.roundRect(this.x-75,this.y-50,150,100,10).fill();
+        ctx.roundRect(this.x-60,this.y-40,120,80,10).fill();
         ctx.strokeStyle = "#8a8787";
-        ctx.roundRect(this.x-75,this.y-50,150,100,10).stroke();
+        ctx.roundRect(this.x-60,this.y-40,120,80,10).stroke();
         ctx.font="35px iconfont";
         let icon=document.createElement('i');
         //icon 为空的时候用默认的
@@ -66,49 +66,49 @@ class Node {
             function draw(obj){
                 ctx.msImageSmoothingEnabled = false;
                 ctx.imageSmoothingEnabled = false;
-                ctx.drawImage(obj,that.x-ctx.measureText(content).width,that.y-30,30,30);
+                ctx.drawImage(obj,that.x-ctx.measureText(content).width,that.y-20,25,25);
             }
-            ctx.font="18px Arial bold";
+            ctx.font="16px Arial bold";
             //新需求 有别名的时候优先展示别名
             if(this.Alias){
-                ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+                ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+25);
             }else{
-                ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+                ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+25);
             }
         }else{
             if(this.icon!=null && this.icon!='null'){
                 ctx.fillText(content,this.x-ctx.measureText(content).width/2,this.y);
-                ctx.font="18px Arial bold";
+                ctx.font="16px Arial bold";
                 //新需求 有别名的时候优先展示别名
                 if(this.Alias){
-                    ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+                    ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+25);
                 }else{
-                    ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+                    ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+25);
                 }
             }else{
-                ctx.font="18px Arial bold";
+                ctx.font="16px Arial bold";
                 //新需求 有别名的时候优先展示别名
                 if(this.Alias){
-                    ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+30);
+                    ctx.fillText(this.Alias,this.x-ctx.measureText(this.Alias).width/2,this.y+25);
                 }else{
-                    ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+30);
+                    ctx.fillText(this.name,this.x-ctx.measureText(this.name).width/2,this.y+25);
                 }
             }
         }
         //画可供链接的圆
         ctx.beginPath();
         if(this.type=='sourceData'){
-            ctx.arc(this.x+75,this.y,10,0,2*Math.PI);
+            ctx.arc(this.x+60,this.y,10,0,2*Math.PI);
         }else if(this.type=='targetData'){
-            ctx.arc(this.x-75,this.y,10,0,2*Math.PI);
+            ctx.arc(this.x-60,this.y,10,0,2*Math.PI);
         }else{
-            ctx.arc(this.x+75,this.y,10,0,2*Math.PI);
+            ctx.arc(this.x+60,this.y,10,0,2*Math.PI);
             ctx.stroke();
             ctx.fillStyle="#fff";
             ctx.fill();
             ctx.closePath();
             ctx.beginPath();
-            ctx.arc(this.x-75,this.y,10,0,2*Math.PI);
+            ctx.arc(this.x-60,this.y,10,0,2*Math.PI);
         }
         ctx.stroke();
         ctx.fillStyle="#fff";

@@ -17,7 +17,7 @@ class canvasLine {
         let canvas = $kenEditor.canvas;
         let ctx = canvas.getContext('2d');
         ctx.beginPath();
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 2;
         if (this.active) {
             ctx.strokeStyle = "black";
         } else {
@@ -36,11 +36,11 @@ class canvasLine {
             y: this.to.y
         };
         var beginPoint = {
-            x: this.from.x + 75,
+            x: this.from.x + 60,
             y: this.from.y
         };
         var endPoint = {
-            x: this.to.x - 75,
+            x: this.to.x - 60,
             y: this.to.y
         };
         ctx.moveTo(beginPoint.x, beginPoint.y);
