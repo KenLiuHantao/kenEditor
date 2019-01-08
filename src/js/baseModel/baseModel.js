@@ -357,8 +357,7 @@ class baseModel {
                 canvasNodeList.selectNode.x = moveX - that.draggingOffsetX;
                 canvasNodeList.selectNode.y = moveY - that.draggingOffsetY;
                 //新增画布拖拽扩展
-                if(moveY>document.getElementById('baseCanvas').getAttribute('height')-50){
-                    console.log(moveY,that.draggingOffsetY,document.getElementById('baseCanvas').getAttribute('height'));
+                if(moveY>document.getElementById('baseCanvas').getAttribute('height')-80){
                     document.getElementById('baseCanvas').setAttribute('height',parseInt(document.getElementById('baseCanvas').getAttribute('height'))+50);
                     document.getElementById('canvasBg').setAttribute('height',parseInt(document.getElementById('canvasBg').getAttribute('height'))+50);
                     $kenEditor.bgCanvas.setBackground(null);
@@ -366,6 +365,15 @@ class baseModel {
                     var div = document.getElementById('canvasBg').parentNode;
                     div.scrollTop = div.scrollHeight;
                 }
+                //画布右侧也可以拓展
+                if(moveX>document.getElementById('baseCanvas').getAttribute('width')-80){
+                    document.getElementById('baseCanvas').setAttribute('width',parseInt(document.getElementById('baseCanvas').getAttribute('width'))+50);
+                    document.getElementById('canvasBg').setAttribute('width',parseInt(document.getElementById('canvasBg').getAttribute('width'))+50);
+                    $kenEditor.bgCanvas.setBackground(null);
+                    var div = document.getElementById('canvasBg').parentNode;
+                    div.scrollLeft = div.scrollWidth;
+                }
+                console.log(moveX,document.getElementById('baseCanvas').getAttribute('width'))
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
