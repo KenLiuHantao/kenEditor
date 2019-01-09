@@ -358,8 +358,8 @@ class baseModel {
                 canvasNodeList.selectNode.y = moveY - that.draggingOffsetY;
                 //新增画布拖拽扩展
                 if(moveY>document.getElementById('baseCanvas').getAttribute('height')-80){
-                    document.getElementById('baseCanvas').setAttribute('height',parseInt(document.getElementById('baseCanvas').getAttribute('height'))+50);
-                    document.getElementById('canvasBg').setAttribute('height',parseInt(document.getElementById('canvasBg').getAttribute('height'))+50);
+                    document.getElementById('baseCanvas').setAttribute('height',parseInt(document.getElementById('baseCanvas').getAttribute('height'))+80);
+                    document.getElementById('canvasBg').setAttribute('height',parseInt(document.getElementById('canvasBg').getAttribute('height'))+80);
                     $kenEditor.bgCanvas.setBackground(null);
                     //拓展和有滚动条顺便跟着滚下来
                     var div = document.getElementById('canvasBg').parentNode;
@@ -367,8 +367,8 @@ class baseModel {
                 }
                 //画布右侧也可以拓展
                 if(moveX>document.getElementById('baseCanvas').getAttribute('width')-80){
-                    document.getElementById('baseCanvas').setAttribute('width',parseInt(document.getElementById('baseCanvas').getAttribute('width'))+50);
-                    document.getElementById('canvasBg').setAttribute('width',parseInt(document.getElementById('canvasBg').getAttribute('width'))+50);
+                    document.getElementById('baseCanvas').setAttribute('width',parseInt(document.getElementById('baseCanvas').getAttribute('width'))+80);
+                    document.getElementById('canvasBg').setAttribute('width',parseInt(document.getElementById('canvasBg').getAttribute('width'))+80);
                     $kenEditor.bgCanvas.setBackground(null);
                     var div = document.getElementById('canvasBg').parentNode;
                     div.scrollLeft = div.scrollWidth;
