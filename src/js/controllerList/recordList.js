@@ -30,7 +30,7 @@ class recordList {
             }
         }
         $kenEditor.controllerList.changeControllerStateByName('后退','default');
-        $kenEditor.controllerList.changeControllerStateByName('前进','disable')
+        $kenEditor.controllerList.changeControllerStateByName('前进','disable');
     }
     goBack(){
         if(this.activeIndex>0){
@@ -43,8 +43,8 @@ class recordList {
             let baseModel=$kenEditor.baseModel;
             let canvasNodeList = $kenEditor.canvasNodeList;
             let canvasLineList = $kenEditor.canvasLineList;
-            canvasLineList.setCanvasLineList(JSON.parse(JSON.stringify(this.recordList[this.activeIndex].lineList)));
             canvasNodeList.setCanvasNodeList(JSON.parse(JSON.stringify(this.recordList[this.activeIndex].nodeList)));
+            canvasLineList.setCanvasLineList(JSON.parse(JSON.stringify(this.recordList[this.activeIndex].lineList)));
             baseModel.clearAll(baseModel);
             baseModel.renderLine(baseModel);
             baseModel.renderNode(baseModel);
@@ -60,8 +60,8 @@ class recordList {
             let baseModel=$kenEditor.baseModel;
             let canvasNodeList = $kenEditor.canvasNodeList;
             let canvasLineList = $kenEditor.canvasLineList;
-            canvasLineList.setCanvasLineList(JSON.parse(JSON.stringify(this.recordList[this.activeIndex].lineList)));
             canvasNodeList.setCanvasNodeList(JSON.parse(JSON.stringify(this.recordList[this.activeIndex].nodeList)));
+            canvasLineList.setCanvasLineList(JSON.parse(JSON.stringify(this.recordList[this.activeIndex].lineList)));
             baseModel.clearAll(baseModel);
             baseModel.renderLine(baseModel);
             baseModel.renderNode(baseModel);

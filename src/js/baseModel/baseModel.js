@@ -373,7 +373,6 @@ class baseModel {
                     var div = document.getElementById('canvasBg').parentNode;
                     div.scrollLeft = div.scrollWidth;
                 }
-                console.log(moveX,document.getElementById('baseCanvas').getAttribute('width'))
                 that.clearAll(that);
                 that.renderLine(that);
                 that.renderNode(that);
